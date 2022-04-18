@@ -1,0 +1,16 @@
+{
+  "name": "backenda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "express-generator": "^4.16.1",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "jasmine-node": "^3.0.0"
+  }
+}
