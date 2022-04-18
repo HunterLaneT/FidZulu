@@ -3,10 +3,10 @@ const nock = require("nock");
 
 const base_url = 'http://localhost:3021';
 
-describe("Toys Mid End Tests", () => {
-    describe("GET /toys/<location>", () => {
+describe("Food Mid End Tests", () => {
+    describe("GET /food/<location>", () => {
         it("returns a 404 status code", (done) => {
-            let location = "/toys/Pizza";
+            let location = "/food/invalid";
 
             nock(base_url).get(location).reply(404);
 
@@ -17,15 +17,16 @@ describe("Toys Mid End Tests", () => {
         });
 
         it("returns a 200 status code", (done) => {
-            let location = "/toys/Durham";
+            let location = "/food/Durham";
 
             nock(base_url).get(location).reply(200, {
                 data: {
-                    "name": "Stack Up Cups",
-                    "brand": "The First Years",
-                    "age-group": "0 to 3",
-                    "prize": 3.99
-                }
+                    "name": "The Original Sandwich",
+                    "brand": "Oreo",
+                    "weight": "303g",
+                    "calories": 405,
+                    "price": 2.85
+                  }
             });
 
             request.get(base_url + location, (err, res, body) => {
@@ -34,21 +35,22 @@ describe("Toys Mid End Tests", () => {
             });
         });
 
-        it("returns The First Years", (done) => {
-            let location = "/toys/Durham";
+        it("returns The original sandwich", (done) => {
+            let location = "/food/Durham";
             
             nock(base_url).get(location).reply(200, {
                 data: {
-                    "name": "Stack Up Cups",
-                    "brand": "The First Years",
-                    "age-group": "0 to 3",
-                    "prize": 3.99
-                }
+                    "name": "The Original Sandwich",
+                    "brand": "Oreo",
+                    "weight": "303g",
+                    "calories": 405,
+                    "price": 2.85
+                  }
             });
 
             request.get(base_url + location, (err, res, body) => {
                 expect(body).toBeTruthy();
-                expect(body).toContain("Stack Up Cups");
+                expect(body).toContain("The Original Sandwich");
                 done();
             });
         });
