@@ -11,7 +11,9 @@
   "dependencies": {
     "express": "^4.17.3",
     "express-generator": "^4.16.1",
-    "jasmine-node": "^3.0.0",
     "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "jasmine-node": "^3.0.0"
   }
 }
