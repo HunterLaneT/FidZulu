@@ -30,15 +30,24 @@ router.get('/books/all/:location', (req, res, next) => {
   res.end(JSON.stringify(result));
 });
 
-router.get('/books/team', (req,res,next) => {
+router.get('/books/team', (req, res, next) => {
   res.setHeader('content-type', 'application/json');
   res.end(JSON.stringify(team));
 });
 
-router.post('/books/add', (req,res,next) => {
+router.post('/books/add', (req, res, next) => {
   const newBook = req.body;
-  books.add_book(newBook);
-  res.end();
+  if (
+    Object.keys(newBook).length === 5 && typeof (newBook.Title) === 'string'
+    && typeof (newBook.Author) === 'string' && typeof (newBook.price) === 'number'
+    && typeof (newBook.ISBN) === 'string' && typeof (newBook.publisher) === 'string'
+  ) {
+    books.add_book(newBook);
+    res.end();
+  }
+  else {
+    res.sendStatus(400);
+  }
 });
 
 module.exports = router;
