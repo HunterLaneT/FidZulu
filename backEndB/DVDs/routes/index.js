@@ -42,7 +42,7 @@ router.get('/dvds/team', (req,res,next) => {
 
 router.post('/dvds/add', (req,res,next) => {
   const newDVD = req.body;
-  books.add_DVD(newDVD);
+  dvds.add_DVD(newDVD);
   res.end();
 });
 
