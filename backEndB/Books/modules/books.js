@@ -8,3 +8,12 @@ let read_json_file = () => {
 exports.list = function() {
     return JSON.parse(read_json_file());
 };
+
+exports.add_book = (book) => {
+    let books = JSON.parse(read_json_file());
+    books[books.length] = book;
+    fs.writeFile('./data/data.json',JSON.stringify(books), err => {
+        if(err) console.log(err.message);
+        else console.log("Wrote to file successfully");
+    });
+};
