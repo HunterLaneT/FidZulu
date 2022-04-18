@@ -41,8 +41,8 @@ router.get('/dvds/team', (req,res,next) => {
 });
 
 router.post('/dvds/add', (req,res,next) => {
-  const newBook = req.body;
-  books.add_book(newBook);
+  const newDVD = req.body;
+  books.add_DVD(newDVD);
   res.end();
 });
 
