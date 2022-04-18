@@ -1,30 +1,35 @@
 var express = require('express');
-const request = require('request');
+const axios = require('axios');
 var router = express.Router();
 
 /* Calculate Bike Prices */
-router.get('/:location', function(req, res, next) {
+router.get('/:location', async function(req, res, next) {
 
     var location = req.params.location;
     let response;
 
-    request('http://localhost:3031/bikes/' + location, { json: true }, (err, res, body) => {
+    // request('http://localhost:3031/bikes/' + location, { json: true }, (err, res, body) => {
         
-        if(err) {
-            response = err;
-        } else {
-          console.log(body);
-          let statusCode = res.statusCode;
-          response = {
-              statusCode,
-              body
-          };
-        }
+    //     if(err) {
+    //         response = err;
+    //     } else {
+    //       console.log(body);
+    //       response = body;
+    //     }
 
-    });
+    // });
+
+    response = await getBikes();
 
     res.send(response);
 });
 
+async function getBikes() {
+    axios.get('http://localhost:3031/bikes/' + location)
+        .then(response => {
+            console.log(response.data);
+            return response.data;
+        });
+};
 
 module.exports = router;
