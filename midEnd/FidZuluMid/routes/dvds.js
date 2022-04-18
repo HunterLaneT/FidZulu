@@ -13,7 +13,7 @@ router.get('/:location', function(req, res, next) {
 });
 
 async function getDVDs(location) {
-    return axios.get('http://localhost:3031/dvds/' + location)
+    return axios.get('http://localhost:3035/dvds/' + location)
         .then(response => {
             console.log(response.data);
             return response.data
