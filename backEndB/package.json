@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"node ./Books/bin/www\" \"node ./DVDs/bin/www\" \"node ./Laptops/bin/www\""
+    "start": "concurrently \"node ./Books/bin/www\" \"node ./DVDs/bin/www\" \"node ./Laptops/bin/www\"",
+    "devStart": "concurrently \"nodemon ./Books/bin/www\" \"nodemon ./DVDs/bin/www\" \"nodemon ./Laptops/bin/www\""
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +16,7 @@
   },
   "devDependencies": {
     "concurrently": "^7.1.0",
-    "jasmine-node": "^3.0.0"
+    "jasmine-node": "^3.0.0",
+    "nodemon": "^2.0.15"
   }
 }
