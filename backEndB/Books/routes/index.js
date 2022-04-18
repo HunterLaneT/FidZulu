@@ -4,13 +4,18 @@ const router = express.Router();
 
 const books = require('../modules/books');
 const url = require('url');
+const team = {
+  "team": "Back-End B",
+  "membersNames": [
+    "Will Berner",
+    "Rahul Gawdi",
+    "Matthew Yeakel",
+    "Ryland Dreibelbis",
+    "Conner Bluck"
+  ]
+}
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
-router.get('/Books/:location', (req, res, next) => {
+router.get('/Books/all/:location', (req, res, next) => {
   const location = req.params.location;
   let tax = 0;
   if (location === "Raleigh") tax = 0.075;
@@ -23,6 +28,11 @@ router.get('/Books/:location', (req, res, next) => {
   });
   res.setHeader('content-type', 'application/json');
   res.end(JSON.stringify(result));
+});
+
+router.get('/Books/team', (req,res,next) => {
+  res.setHeader('content-type', 'application/json');
+  res.end(JSON.stringify(team));
 });
 
 module.exports = router;
