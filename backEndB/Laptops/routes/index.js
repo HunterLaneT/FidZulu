@@ -5,12 +5,19 @@ const router = express.Router();
 const laptops = require('../modules/laptops');
 const url = require('url');
 
+const team = {
+  "team": "backEndB Laptop",
+  "membersNames" : [
+    "Matthew Yeakel"
+]
+}
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/laptops/:location', (req, res, next) => {
+router.get('/laptops/all/:location', (req, res, next) => {
     const location = req.params.location;
     let tax = 0;
     if (location === "Raleigh") tax = 0.075;
@@ -24,5 +31,11 @@ router.get('/laptops/:location', (req, res, next) => {
     res.setHeader('content-type', 'application/json');
     res.end(JSON.stringify(result));
   });
+
+  router.get('/laptops/team', (req, res, next) => {
+    // result = team;
+    res.setHeader('content-type', 'application/json');
+    res.end(JSON.stringify(team));
+  })
 
 module.exports = router;
