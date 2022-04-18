@@ -9,5 +9,10 @@
 
 .btn-group{
   margin: .25rem;
-  font-weight: bold;
+  font-weight: 700;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
 }
