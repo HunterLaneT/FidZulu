@@ -11,15 +11,16 @@ router.get('/:location', function(req, res, next) {
     request('http://localhost:3031/bikes/' + location, { json: true }, (err, res, body) => {
         
         if(err) {
-            console.log(err);
+            response = err;
+        } else {
+          console.log(body);
+          let statusCode = res.statusCode;
+          response = {
+              statusCode,
+              body
+          };
         }
 
-        console.log(body);
-        let statusCode = res.statusCode;
-        response = {
-            statusCode,
-            body
-        };
     });
 
     res.send(response);
