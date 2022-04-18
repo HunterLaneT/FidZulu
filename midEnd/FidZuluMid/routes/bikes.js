@@ -26,6 +26,7 @@ router.get('/:location', async function(req, res, next) {
         });
 
     res.write(response);
+    res.end();
 });
 
 
