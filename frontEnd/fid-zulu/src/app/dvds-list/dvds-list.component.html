@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Studio</th>
+      <th scope="col">Rating</th>
+      <th scope="col">Time</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr mdbTableCol *ngFor="let dvd of dvds" >
+      <td>{{dvd.title}}</td>
+      <td>{{dvd.studio}}</td>
+      <td>{{dvd.mpaa_rating}}</td>
+      <td>{{dvd.time}}</td>
+      <td>{{dvd.price | currency}}</td>
+    </tr>
+  </tbody>
+</table>
