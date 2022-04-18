@@ -4,12 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BikesListComponent } from './bikes-list/bikes-list.component';
+import { DVDsListComponent } from './dvds-list/dvds-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    BikesListComponent
+    BikesListComponent,
+    DVDsListComponent
   ],
   imports: [
     BrowserModule,
