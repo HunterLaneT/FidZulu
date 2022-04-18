@@ -15,7 +15,7 @@ exports.query_by_arg = (value) =>{
     }
     let results = JSON.parse(read_json_file());
     console.log("Query by location" + value);
-    for(let i =0; i<results.length; i++){
+    for(let i =0; i < results.length; i++){
         let product = results[i];
         if(value === "Raleigh"){
             product.price *= 1.075;
