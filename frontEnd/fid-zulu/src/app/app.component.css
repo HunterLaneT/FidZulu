@@ -1,1 +1,5 @@
 @import '~mdb-ui-kit/css/mdb.min.css';
+
+.btn{
+  margin: .25rem;
+}
