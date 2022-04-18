@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Bike } from '../models/bike.model';
 import { Dvd } from '../models/dvd.model';
 import { Food } from '../models/food';
+import { Laptop } from '../models/laptop';
 import { Toys } from '../models/toys';
 
 @Injectable({
@@ -66,7 +67,7 @@ export class ProductService {
     },
   ];
 
-  mockFood: Food[] = 
+  mockFood: Food[] =
   [
     {
       "name": "The Original Sandwich",
@@ -124,6 +125,38 @@ export class ProductService {
       "prize": 3.99
     }
   ]
+
+  mockLaptops: Laptop[] = [
+    {
+      "product": "ThinkPad T430s",
+      "brand": "Lenovo",
+      "CPU": "core i5-3320",
+      "memory": "8GB",
+      "price": 325.09
+    },
+    {
+      "product": "MacBook Air",
+      "brand": "Apple",
+      "CPU": "core i5 1.6GHz",
+      "memory": "4GB",
+      "price": 621.78
+    },
+    {
+      "product": "Ideapad 330",
+      "brand": "Lenovo",
+      "CPU": "core i3-8130U",
+      "memory": "4GB",
+      "price": 459.98
+    },
+    {
+      "product": "MacBook Pro",
+      "brand": "Apple",
+      "CPU": "core i5 2.5GHz",
+      "memory": "4GB",
+      "price": 2999.99
+    }
+  ]
+
   // getStocks() : Observable<Stock[]>  {
   //   return this.http.get<Stock[]>(this.url).pipe(catchError(this.handleError));
   // }
@@ -135,13 +168,17 @@ export class ProductService {
   getDvds(): Dvd[] {
     return this.mockDvds;
   }
-  
+
   getFood() : Food[] {
-    return this.mockFood 
+    return this.mockFood
   }
 
   getToys(): Toys[]{
     return this.mockToys;
+  }
+
+  getLaptops(): Laptop[]{
+    return this.mockLaptops;
   }
 
   constructor() { }
