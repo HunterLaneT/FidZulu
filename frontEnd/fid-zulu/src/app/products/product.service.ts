@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Bike } from '../models/bike.model';
 import { Dvd } from '../models/dvd.model';
 import { Food } from '../models/food';
+import { Toys } from '../models/toys';
 
 @Injectable({
   providedIn: 'root',
@@ -97,6 +98,32 @@ export class ProductService {
     }
   ];
 
+  mockToys : Toys[] = [
+    {
+      "name": "Medical Kit",
+      "brand": "Fisher-Price",
+      "ageGroup": "3 to 9",
+      "prize": 20.41
+    },
+    {
+      "name": "Ferry Boat",
+      "brand": "Green Toys",
+      "ageGroup": "3 to 6",
+      "prize": 13.26
+    },
+    {
+      "name": "Rock-a-Stack",
+      "brand": "Fisher-Price",
+      "ageGroup": "1 to 5",
+      "prize": 5.99
+    },
+    {
+      "name": "Stack Up Cups",
+      "brand": "The First Years",
+      "ageGroup": "0 to 3",
+      "prize": 3.99
+    }
+  ]
   // getStocks() : Observable<Stock[]>  {
   //   return this.http.get<Stock[]>(this.url).pipe(catchError(this.handleError));
   // }
@@ -111,6 +138,10 @@ export class ProductService {
   
   getFood() : Food[] {
     return this.mockFood 
+  }
+
+  getToys(): Toys[]{
+    return this.mockToys;
   }
 
   constructor() { }
