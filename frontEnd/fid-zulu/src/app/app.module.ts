@@ -11,6 +11,7 @@ import { LaptopsListComponent } from './laptops-list/laptops-list.component';
 import { BooksListComponent } from './books-list/books-list.component';
 import { ToysListComponent } from './toys-list/toys-list.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { ShowAllListsComponent } from './show-all-lists/show-all-lists.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     LaptopsListComponent,
     BooksListComponent,
     ToysListComponent,
-    NavBarComponent
+    NavBarComponent,
+    ShowAllListsComponent
   ],
   imports: [
     BrowserModule,
