@@ -17,6 +17,7 @@
     "request": "^2.81.0"
   },
   "devDependencies": {
-    "jasmine-node": "^3.0.0"
+    "jasmine-node": "^3.0.0",
+    "nock": "^13.2.4"
   }
 }
