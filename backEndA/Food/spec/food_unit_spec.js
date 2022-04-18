@@ -1,30 +1,30 @@
 let request = require("request");
-let bikes = require("../modules/bikes");
+let food = require("../modulesfood");
 
-describe("Unit tests on bikes module", () => {
-    describe("load all bikes", () => {
+describe("Unit tests on food module", () => {
+    describe("load all food", () => {
         //positive test to load all food
         it("have four elements", () => {
-            let results = bikes.list();
+            let results = food.list();
             expect(results.length).toBe(4);
         });
         
     });
     describe("load bikes with taxes", () => {
-        //positive test to load bikes from Raleigh
+        //positive test to load food from Raleigh
         it("with location Raleigh", () => {
-            let results = bikes.query_by_arg("Raleigh");
+            let results = food.query_by_arg("Raleigh");
             expect(results[0].price).toBe("81.57");
         });
-        //positive test to load bikes from Durham
+        //positive test to load food from Durham
         it("with location Durham", () => {
-            let results = bikes.query_by_arg("Durham");
+            let results = food.query_by_arg("Durham");
             expect(results[0].price).toBe("81.95");
         });
-        //negative test to load bikes from China (does not exist)
+        //negative test to load food from China (does not exist)
         it("with invalid location China", () => {
             expect( () => {
-                bikes.query_by_arg("China");
+                food.query_by_arg("China");
             }).toThrow("arg is not defined");
         });
        
