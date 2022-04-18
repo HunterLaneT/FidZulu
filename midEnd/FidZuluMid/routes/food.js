@@ -6,24 +6,18 @@ var router = express.Router();
 router.get('/:location', function(req, res, next) {
 
     var location = req.params.location;
-    let response;
 
-    request('localhost:3034/food/' + location, {json: true}, (err, res, body) => {
-
-        if(err) {
-            console.log(err);
-        } else {
-            console.log(body);
-            let statusCode = res.statusCode;
-            response = {
-                statusCode,
-                body
-            };
-          }
-          
-    });
-
-    res.send(response);
+    getFoods(location).then(data => {
+        res.send(data);
+    }).catch(err => console.log(err));
 });
+
+async function getFoods(location) {
+    return axios.get('http://localhost:3031/food/' + location)
+        .then(response => {
+            console.log(response.data);
+            return response.data
+        });
+};
 
 module.exports = router;
