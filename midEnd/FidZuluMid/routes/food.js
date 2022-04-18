@@ -12,14 +12,15 @@ router.get('/:location', function(req, res, next) {
 
         if(err) {
             console.log(err);
-        }
-        
-        console.log(body);
-        let statusCode = res.statusCode;
-        response = {
-            statusCode,
-            body
-        }
+        } else {
+            console.log(body);
+            let statusCode = res.statusCode;
+            response = {
+                statusCode,
+                body
+            };
+          }
+          
     });
 
     res.send(response);
