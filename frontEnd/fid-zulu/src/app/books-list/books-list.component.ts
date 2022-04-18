@@ -4,7 +4,7 @@ import { Book } from '../models/book.model';
 @Component({
   selector: 'app-books-list',
   templateUrl: './books-list.component.html',
-  styleUrls: ['./books-list.component.css']
+  styleUrls: ['../app.component.css']
 })
 export class BooksListComponent implements OnInit {
 
