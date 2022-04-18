@@ -1,5 +1,13 @@
 @import '~mdb-ui-kit/css/mdb.min.css';
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
-.btn{
+*{
+  font-family: Ubuntu;
+  font-smooth: always;
+  font-smooth: 5em;
+}
+
+.btn-group{
   margin: .25rem;
+  font-weight: bold;
 }
