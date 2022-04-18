@@ -7,7 +7,7 @@ console.log("Starting test");
 
 describe("Laptop RESTful service", () => {
     describe("GET Laptops/NYC or any /misc", () => {
-        const url = base_url + "Laptops/NYC";
+        const url = base_url + "Laptops/all/NYC";
         it("returns status code 200", done => {
             request.get(url, (err, res, body) => {
                 expect(res.statusCode).toBe(200);
@@ -24,7 +24,7 @@ describe("Laptop RESTful service", () => {
     });
 
         describe("GET Laptops/Durham/", () => {
-            const url = base_url + "Laptops/Raleigh";
+            const url = base_url + "Laptops/all/Raleigh";
             it("returns status code 200", done => {
                 request.get(url, (err, res, body) => {
                     expect(res.statusCode).toBe(200);
@@ -42,7 +42,7 @@ describe("Laptop RESTful service", () => {
     });
 
         describe("GET Laptops/Durham/", () => {
-            const url = base_url + "Laptops/Durham";
+            const url = base_url + "Laptops/all/Durham";
             it("returns status code 200", done => {
                 request.get(url, (err, res, body) => {
                     expect(res.statusCode).toBe(200);
@@ -57,6 +57,23 @@ describe("Laptop RESTful service", () => {
             });
         });
         });
+
+        describe("GET Laptops/team/", () => {
+            const url = base_url + "Laptops/team";
+            it("returns status code 200", done => {
+                request.get(url, (err, res, body) => {
+                    expect(res.statusCode).toBe(200);
+                    done();
+            });
+            });
+            it("Expect at least one person", done => {
+                request.get(url, (err, res, body) => {
+                    const team = JSON.parse(body);
+                    expect((team.membersNames.length)>=1).toBeTruthy();
+                    done();
+            });
     });
     });
+});
+});
 })
