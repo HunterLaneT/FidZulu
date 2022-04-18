@@ -21,7 +21,7 @@ router.get('/:location', async function(req, res, next) {
 
     getBikes().then(data => {
         res.send(data);
-    });
+    }).catch(err => console.log(err));
 
 });
 
