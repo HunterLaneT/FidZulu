@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Bike } from '../models/bike.model';
 import { Dvd } from '../models/dvd.model';
+import { Food } from '../models/food';
 
 @Injectable({
   providedIn: 'root',
@@ -64,6 +65,38 @@ export class ProductService {
     },
   ];
 
+  mockFood: Food[] = 
+  [
+    {
+      "name": "The Original Sandwich",
+      "brand": "Oreo",
+      "weight": "303g",
+      "calories": 405,
+      "price": 2.85
+    },
+    {
+      "name": "Peanut Butter",
+      "brand": "KRAFT",
+      "weight": "2000g",
+      "calories": 726,
+      "price": 9.39
+    },
+    {
+      "name": "Beef Ravioli",
+      "brand": "Chef Boyardee",
+      "weight": "425g",
+      "calories": 250,
+      "price": 2.45
+    },
+    {
+      "name": "Medium Cheddar Cheese",
+      "brand": "MOON CHEESE",
+      "weight": "57g",
+      "calories": 525,
+      "price": 5.87
+    }
+  ];
+
   // getStocks() : Observable<Stock[]>  {
   //   return this.http.get<Stock[]>(this.url).pipe(catchError(this.handleError));
   // }
@@ -75,6 +108,10 @@ export class ProductService {
   getDvds(): Dvd[] {
     return this.mockDvds;
   }
+  
+  getFood() : Food[] {
+    return this.mockFood 
+  }
 
-  constructor() {}
+  constructor() { }
 }
