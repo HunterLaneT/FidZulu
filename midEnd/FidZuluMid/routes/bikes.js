@@ -19,13 +19,13 @@ router.get('/:location', async function(req, res, next) {
 
     // });
 
-    getBikes().then(data => {
+    getBikes(location).then(data => {
         res.send(data);
-    });
+    }).catch(err => console.log(err));
 
 });
 
-async function getBikes() {
+async function getBikes(location) {
     return axios.get('http://localhost:3031/bikes/' + location)
         .then(response => {
             console.log(response.data);
