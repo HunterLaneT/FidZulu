@@ -8,6 +8,7 @@ import { BikesListComponent } from './bikes-list/bikes-list.component';
 import { FoodsListComponent } from './foods-list/foods-list.component';
 import { LaptopsListComponent } from './laptops-list/laptops-list.component';
 import { BooksListComponent } from './books-list/books-list.component';
+import { ToysListComponent } from './toys-list/toys-list.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { BooksListComponent } from './books-list/books-list.component';
     FoodsListComponent,
     LaptopsListComponent,
     BooksListComponent,
+    ToysListComponent
   ],
   imports: [
     BrowserModule,
