@@ -13,7 +13,7 @@ router.get('/:location', function(req, res, next) {
 });
 
 async function getBooks(location) {
-    return axios.get('http://localhost:3031/books/' + location)
+    return axios.get('http://localhost:3034/books/' + location)
         .then(response => {
             console.log(response.data);
             return response.data
