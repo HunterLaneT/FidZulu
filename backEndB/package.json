@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"node ./Books/bin/www\" \"node ./DVDs/bin/www\" \"node ./Laptops/bin/www\"",
-    "devStart": "concurrently \"nodemon ./Books/bin/www\" \"nodemon ./DVDs/bin/www\" \"nodemon ./Laptops/bin/www\""
+    "devStart": "concurrently \"nodemon ./Books/bin/www\" \"nodemon ./DVDs/bin/www\" \"nodemon ./Laptops/bin/www\"",
+    "install": "concurrently \"cd ./Books && npm i\" \"cd ./DVDs && npm i\" \"cd ./Laptops && npm i\""
   },
   "author": "",
   "license": "ISC",
