@@ -77,4 +77,23 @@ describe("Books RESTful service", () => {
             });
         });
     });
+    describe("POST add", () => {
+        const url = base_url + "add/";
+        const testBook = {
+            Title: "Cool title",
+            Author: "Cool guy",
+            price: 99.99,
+            ISBN: "1234567890",
+            publisher: "Cool publisher"
+        };
+        it("adds valid book", done => {
+            request.post(url,{body: testBook, json: true}, (err,res,body) => {
+                request.get(base_url+"all/raleigh/", (err,res,body) => {
+                    const books = JSON.parse(body);
+                    expect(books.length).toBe(5);
+                    done();
+                });
+            });
+        });
+    });
 })
