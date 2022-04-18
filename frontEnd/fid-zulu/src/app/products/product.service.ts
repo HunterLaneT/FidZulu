@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Bike } from '../models/bike.model';
 import { Dvd } from '../models/dvd.model';
+import { Food } from '../models/food';
+import { Toys } from '../models/toys';
 
 @Injectable({
   providedIn: 'root',
@@ -64,6 +66,64 @@ export class ProductService {
     },
   ];
 
+  mockFood: Food[] = 
+  [
+    {
+      "name": "The Original Sandwich",
+      "brand": "Oreo",
+      "weight": "303g",
+      "calories": 405,
+      "price": 2.85
+    },
+    {
+      "name": "Peanut Butter",
+      "brand": "KRAFT",
+      "weight": "2000g",
+      "calories": 726,
+      "price": 9.39
+    },
+    {
+      "name": "Beef Ravioli",
+      "brand": "Chef Boyardee",
+      "weight": "425g",
+      "calories": 250,
+      "price": 2.45
+    },
+    {
+      "name": "Medium Cheddar Cheese",
+      "brand": "MOON CHEESE",
+      "weight": "57g",
+      "calories": 525,
+      "price": 5.87
+    }
+  ];
+
+  mockToys : Toys[] = [
+    {
+      "name": "Medical Kit",
+      "brand": "Fisher-Price",
+      "ageGroup": "3 to 9",
+      "prize": 20.41
+    },
+    {
+      "name": "Ferry Boat",
+      "brand": "Green Toys",
+      "ageGroup": "3 to 6",
+      "prize": 13.26
+    },
+    {
+      "name": "Rock-a-Stack",
+      "brand": "Fisher-Price",
+      "ageGroup": "1 to 5",
+      "prize": 5.99
+    },
+    {
+      "name": "Stack Up Cups",
+      "brand": "The First Years",
+      "ageGroup": "0 to 3",
+      "prize": 3.99
+    }
+  ]
   // getStocks() : Observable<Stock[]>  {
   //   return this.http.get<Stock[]>(this.url).pipe(catchError(this.handleError));
   // }
@@ -75,6 +135,14 @@ export class ProductService {
   getDvds(): Dvd[] {
     return this.mockDvds;
   }
+  
+  getFood() : Food[] {
+    return this.mockFood 
+  }
 
-  constructor() {}
+  getToys(): Toys[]{
+    return this.mockToys;
+  }
+
+  constructor() { }
 }

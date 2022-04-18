@@ -1,1 +1,19 @@
-<p>toys-list works!</p>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Age-Group</th>
+        <th scope="col">Prize</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let toy of toysList" >
+        <td>{{toy.name}}</td>
+        <td>{{toy.brand}}</td>
+        <td>{{toy.ageGroup}}</td>
+        <td>{{toy.prize | currency}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
