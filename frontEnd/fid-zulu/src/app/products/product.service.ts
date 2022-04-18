@@ -35,7 +35,13 @@ export class ProductService {
     }
   ]
 
+  // getStocks() : Observable<Stock[]>  {
+  //   return this.http.get<Stock[]>(this.url).pipe(catchError(this.handleError));
+  // }
 
+  getBikes() : Bike[] {
+    return this.mockBikes
+  }
 
   constructor() { }
 }
