@@ -5,7 +5,7 @@ import { ProductService } from '../products/product.service';
 @Component({
   selector: 'app-foods-list',
   templateUrl: './foods-list.component.html',
-  styleUrls: ['./foods-list.component.css']
+  styleUrls: ['../app.component.css']
 })
 export class FoodsListComponent implements OnInit {
 
@@ -13,15 +13,15 @@ export class FoodsListComponent implements OnInit {
 
   foods: Food[] = [];
 
+  getFood() {
+    this.productService.getFood()
+            .subscribe(data => this.foods = data);
+  }
 
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
     this.getFood();
-  }
-
-  getFood() {
-    this.foods = this.productService.getFood();
   }
 
 }

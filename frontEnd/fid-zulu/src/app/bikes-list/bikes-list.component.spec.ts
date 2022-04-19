@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { of } from 'rxjs';
 import { Bike } from '../models/bike.model';
+import { of } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
-
-import { BikesListComponent } from './bikes-list.component';
 import { ProductService } from '../products/product.service';
+import { BikesListComponent } from './bikes-list.component';
+
 
 describe('BikesListComponent', () => {
   let component: BikesListComponent;
