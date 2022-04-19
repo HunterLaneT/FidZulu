@@ -14,7 +14,7 @@ import { Book } from '../models/book.model';
 })
 export class ProductService {
 
-  getBikesEndPoint = 'http://localhost:3021/bikes/Durham';
+  getBikesEndPoint = 'http://localhost:3021/bikes/';
   getDvdsEndPoint = '';
   getBooksEndPoint = '';
   getFoodsEndPoint = '';
@@ -189,33 +189,33 @@ export class ProductService {
     );
   }
 
-  getBikes():  Observable<Bike[]> {
-    return this.http.get<Bike[]>(this.getBikesEndPoint)
+  getBikes(city: string ):  Observable<Bike[]> {
+    return this.http.get<Bike[]>(this.getBikesEndPoint +""+ city)
     .pipe(catchError(this.handleError));
   }
 
-  getDvds(): Observable<Dvd[]> {
-    return this.http.get<Dvd[]>(this.getDvdsEndPoint)
+  getDvds(city: string ): Observable<Dvd[]> {
+    return this.http.get<Dvd[]>(this.getDvdsEndPoint +""+ city)
     .pipe(catchError(this.handleError));
   }
 
-  getFood(): Observable<Food[]> {
-    return this.http.get<Food[]>(this.getFoodsEndPoint)
+  getFood(city: string ): Observable<Food[]> {
+    return this.http.get<Food[]>(this.getFoodsEndPoint +""+ city)
     .pipe(catchError(this.handleError));
   }
 
-  getToys(): Observable<Toys[]> {
-    return this.http.get<Toys[]>(this.getToysEndPoint)
+  getToys(city: string ): Observable<Toys[]> {
+    return this.http.get<Toys[]>(this.getToysEndPoint +""+ city)
     .pipe(catchError(this.handleError));
   }
 
-  getLaptops(): Observable<Laptop[]> {
-    return this.http.get<Laptop[]>(this.getLaptopsEndPoint)
+  getLaptops(city: string ): Observable<Laptop[]> {
+    return this.http.get<Laptop[]>(this.getLaptopsEndPoint +""+ city)
     .pipe(catchError(this.handleError));
   }
 
-  getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>(this.getBooksEndPoint)
+  getBooks(city: string ): Observable<Book[]> {
+    return this.http.get<Book[]>(this.getBooksEndPoint +""+ city)
     .pipe(catchError(this.handleError));
   }
 

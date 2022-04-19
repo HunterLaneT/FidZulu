@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Book } from '../models/book.model';
 import { ProductService } from '../products/product.service';
 
@@ -13,14 +14,24 @@ export class BooksListComponent implements OnInit {
 
   books: Book[] = []
 
+  city: string = "";
   getBooks(){
-    this.productService.getBooks()
+    this.productService.getBooks(this.city)
             .subscribe(data => this.books = data);
   }
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService
+    , private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params =>{
+      this.city = params['city'];
+    }); 
+
+    if(this.city == null){
+      this.city = "Durham";
+    }
+
     this.getBooks();
   }
 

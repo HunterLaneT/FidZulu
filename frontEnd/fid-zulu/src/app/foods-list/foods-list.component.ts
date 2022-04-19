@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Food } from '../models/food';
 import { ProductService } from '../products/product.service';
 
@@ -12,15 +13,26 @@ export class FoodsListComponent implements OnInit {
   errorMessage: string = "";
 
   foods: Food[] = [];
+  city: string = "";
 
   getFood() {
-    this.productService.getFood()
+    this.productService.getFood(this.city)
             .subscribe(data => this.foods = data);
   }
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService
+    , private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this.route.queryParams.subscribe(params =>{
+      this.city = params['city'];
+    }); 
+
+    if(this.city == null){
+      this.city = "Durham";
+    }
+
     this.getFood();
   }
 
