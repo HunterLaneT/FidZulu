@@ -38,4 +38,19 @@ async function addDVDs(DVD) {
     });
 };
 
+router.get('/teams', async function(req, res, next) {
+
+    getTeams().then(data => {
+        res.send(data);
+    }).catch(err => console.log(err));
+});
+
+async function getTeams() {
+
+    return axios.get(response => {
+        console.log(response.data);
+        return response.data
+    });
+}
+
 module.exports = router;
