@@ -14,31 +14,31 @@ describe('BooksListComponent', () => {
 
     const testBooks: Book[] = [
       {
-        "title": "Lord of the Rings",
-        "author": "J.R.R Tolkien",
+        "Title": "Lord of the Rings",
+        "Author": "J.R.R Tolkien",
         "price": 25.99,
-        "isbn": "9780261102385",
+        "ISBN": "9780261102385",
         "publisher": "HarperCollins"
       },
       {
-        "title": "The Hobbit",
-        "author": "J.R.R Tolkien",
+        "Title": "The Hobbit",
+        "Author": "J.R.R Tolkien",
         "price": 9.88,
-        "isbn": "0261102214",
+        "ISBN": "0261102214",
         "publisher": "HarperCollins"
       },
       {
-        "title": "Lord of Souls",
-        "author": "Greg Keyes",
+        "Title": "Lord of Souls",
+        "Author": "Greg Keyes",
         "price": 12.98,
-        "isbn": "0345508025",
+        "ISBN": "0345508025",
         "publisher": "Del Rey"
       },
       {
-        "title": "Chronicles of Narnia",
-        "author": "C. S. Lewis",
+        "Title": "Chronicles of Narnia",
+        "Author": "C. S. Lewis",
         "price": 41.77,
-        "isbn": "0064471195",
+        "ISBN": "0064471195",
         "publisher": "HarperCollins"
       }
     ]
