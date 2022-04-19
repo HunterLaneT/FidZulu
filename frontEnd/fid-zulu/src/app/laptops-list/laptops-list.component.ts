@@ -9,6 +9,8 @@ import { ProductService } from '../products/product.service';
 })
 export class LaptopsListComponent implements OnInit {
 
+  errorMessage: string = "";
+
   laptops: Laptop[] = []
 
   getLaptops(){

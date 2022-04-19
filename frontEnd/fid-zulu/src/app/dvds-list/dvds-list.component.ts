@@ -8,6 +8,9 @@ import { ProductService } from '../products/product.service';
   styleUrls: ['./dvds-list.component.css'],
 })
 export class DVDsListComponent implements OnInit {
+
+  errorMessage: string = "";
+
   dvds: Dvd[] = [];
 
   getDvds() {

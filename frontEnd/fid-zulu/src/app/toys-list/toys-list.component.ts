@@ -9,7 +9,9 @@ import { ProductService } from '../products/product.service';
 })
 export class ToysListComponent implements OnInit {
 
-  toysList : Toys[] = []; 
+  errorMessage: string = "";
+
+  toysList : Toys[] = [];
 
   getToys()  {
     this.toysList = this.service.getToys();
