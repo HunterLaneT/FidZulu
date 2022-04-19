@@ -27,4 +27,12 @@ async function getFoods(location) {
         });
 };
 
+async function getTeams() {
+    return axios.get('http://localhost:3032/food/teams')
+        .then(response => {
+            console.log(response.data);
+            return response.data
+        });
+};
+
 module.exports = router;
