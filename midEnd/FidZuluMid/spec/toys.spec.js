@@ -53,4 +53,37 @@ describe("Toys Mid End Tests", () => {
             });
         });
     });
+
+    describe("GET /toys/teams", () => {
+        it("returns a 200 status code", (done) => {
+            let path = "/toys/teams";
+
+            nock(base_url).get(path).reply(200, {
+                data: {
+                    "name" : "Brandon Daggerhart"
+                }
+            });
+
+            request.get(base_url + path, (err, res, body) => {
+                expect(res.statusCode).toBe(200);
+                done();
+            });
+        });
+        it("returns Brandon Daggerhart", (done) => {
+            let path = "/toys/teams";
+            
+            nock(base_url).get(path).reply(200, {
+                data: {
+                    "name" : "Brandon Daggerhart"
+                }
+            });
+
+            request.get(base_url + path, (err, res, body) => {
+                expect(body).toBeTruthy();
+                expect(body).toContain("Brandon Daggerhart");
+                done();
+            });
+        });
+
+    });
 });
