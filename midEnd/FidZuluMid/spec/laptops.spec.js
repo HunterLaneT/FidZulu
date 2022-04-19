@@ -2,6 +2,7 @@ const request = require("request");
 const nock = require("nock");
 
 const base_url = 'http://localhost:3035';
+const post_url = "/laptops/add";
 
 describe("Laptops Mid End Tests", () => {
     describe("GET /laptops/<location>", () => {
@@ -88,4 +89,69 @@ describe("Laptops Mid End Tests", () => {
         });
 
     });
+
+    describe("POST /laptops/add", () => {
+        it("returns a 404 status code", (done) => {
+            nock(base_url).post(post_url).reply(404);
+
+            request.post(base_url + post_url, (err, res, body) => {
+                expect(res.statusCode).toBe(404);
+                done();
+            });
+        });
+
+        it("returns a 200 status code", (done) => {
+            let laptop = {
+                "product": "DontThinkPads T430s",
+                "brand": "LenoDont",
+                "CPU": "core iPotato-3320",
+                "memory": "1GB",
+                "price": 3125.09
+              };
+
+            let laptopJSON = JSON.stringify(laptop);
+
+            nock(base_url)
+                .post(post_url, laptop)
+                .reply(200, {
+                    id: 123456
+                });
+
+            request.post({
+                url: base_url + post_url,
+                body: laptopJSON
+            }, (err, res, body) => {
+                expect(res.statusCode).toBe(200);
+                done();
+            });
+        });
+
+        it("returns id on successful add", (done) => {
+            let laptop = {
+                "product": "DontThinkPads T430s",
+                "brand": "LenoDont",
+                "CPU": "core iPotato-3320",
+                "memory": "1GB",
+                "price": 3125.09
+              };
+
+            let laptopJSON = JSON.stringify(laptop);
+
+            nock(base_url)
+                .post(post_url, laptopJSON)
+                .reply(200, {
+                    id: 123456
+                });
+            
+            request.post({
+                url: base_url + post_url,
+                body: laptopJSON
+            }, (err, res, body) => {
+                expect(body).toBeTruthy();
+                expect(body).toContain(123456);
+                done();
+            });
+        });
+    });
+
 });
