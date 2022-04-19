@@ -8,7 +8,24 @@ describe("Unit tests on toys module", () => {
             let results = toys.list();
             expect(results.length).toBe(4);
         });
-        
+    });
+    describe("load toy object", () => {
+        it("contains name property", () => {
+            let results = toys.list();
+            expect(results[0].hasOwnProperty('name'));
+        });
+        it("contains brand property", () => {
+            let results = toys.list();
+            expect(results[0].hasOwnProperty('brand'));
+        });
+        it("contains age_group property", () => {
+            let results = toys.list();
+            expect(results[0].hasOwnProperty('age_group'));
+        });
+        it("contains brand property", () => {
+            let results = toys.list();
+            expect(results[0].hasOwnProperty('price'));
+        });
     });
     describe("load toys with taxes", () => {
         //positive test to load toys from Raleigh
