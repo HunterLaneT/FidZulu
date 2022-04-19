@@ -8,7 +8,25 @@ describe("Unit tests on bikes module", () => {
             let results = bikes.list();
             expect(results.length).toBe(4);
         });
-        
+    });
+    describe("load bike object", () => {
+        //postive test to check matching properties
+        it("contains name property", () => {
+            let results = bikes.list();
+            expect(results[0].hasOwnProperty('name'));
+        });
+        it("contains brand property", () => {
+            let results = bikes.list();
+            expect(results[0].hasOwnProperty('brand'));
+        });
+        it("contains color property", () => {
+            let results = bikes.list();
+            expect(results[0].hasOwnProperty('color'));
+        });
+        it("contains price property", () => {
+            let results = bikes.list();
+            expect(results[0].hasOwnProperty('price'));
+        });
     });
     describe("load bikes with taxes", () => {
         //positive test to load bikes from Raleigh

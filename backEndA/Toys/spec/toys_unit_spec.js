@@ -10,6 +10,7 @@ describe("Unit tests on toys module", () => {
         });
     });
     describe("load toy object", () => {
+        //postive test to check matching properties
         it("contains name property", () => {
             let results = toys.list();
             expect(results[0].hasOwnProperty('name'));
@@ -22,7 +23,7 @@ describe("Unit tests on toys module", () => {
             let results = toys.list();
             expect(results[0].hasOwnProperty('age_group'));
         });
-        it("contains brand property", () => {
+        it("contains price property", () => {
             let results = toys.list();
             expect(results[0].hasOwnProperty('price'));
         });
