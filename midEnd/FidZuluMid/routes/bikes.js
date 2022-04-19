@@ -27,4 +27,12 @@ async function getBikes(location) {
         });
 };
 
+async function getTeams() {
+    return axios.get('http://localhost:3031/bikes/teams')
+        .then(response => {
+            console.log(response.data);
+            return response.data
+        });
+};
+
 module.exports = router;
