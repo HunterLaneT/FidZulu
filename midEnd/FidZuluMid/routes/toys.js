@@ -15,7 +15,16 @@ router.get('/:location', function(req, res, next) {
 router.get('/teams', async function(req, res, next) {
     getTeams().then(data => {
         res.send(data);
-    }).catch(err => console.log(err));
+    }).catch(err => console.log(err))
+});
+
+router.post('/add', function(req, res, next) {
+
+    var newToy = req.body;
+
+    addToys(newToy).then(data => {
+        res.send(data);
+    }).catch(err => res.sendStatus(err.response.status));
 });
 
 async function getToys(location) {
@@ -24,6 +33,13 @@ async function getToys(location) {
             console.log(response.data);
             return response.data
         });
+};
+async function addToys(toy) {
+    return axios.post('http://localhost:3034/toys/add', toy)
+    .then(response => {
+        console.log(response.data);
+        return response.data
+    });
 };
 
 async function getTeams() {
