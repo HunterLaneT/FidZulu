@@ -9,14 +9,14 @@ exports.list=function(){
 
 exports.add_dvd = (dvd) => {
 let dvds = JSON.parse(read_json_file());
-dvds[dvds.time]==dvd;
+dvds[dvds.length]=dvd;
 fs.writeFile('./data/data.json',JSON.stringify(dvds), err =>{
     if(err) console.log(err.message);
     else console.log("wrote to file successfully")
 });
 };
 exports.reset_json = (json) => {
-    fs.writeFile(file, JSON.stringify(json), err => {
+    fs.writeFile('./data/data.json', JSON.stringify(json), err => {
         if (err) console.log(err.message);
         else console.log("Wrote to file successfully");
     });
