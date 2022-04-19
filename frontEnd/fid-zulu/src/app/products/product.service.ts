@@ -15,11 +15,11 @@ import { Book } from '../models/book.model';
 export class ProductService {
 
   getBikesEndPoint = 'http://localhost:3021/bikes/';
-  getDvdsEndPoint = '';
-  getBooksEndPoint = '';
-  getFoodsEndPoint = '';
-  getLaptopsEndPoint = '';
-  getToysEndPoint = '';
+  getDvdsEndPoint = 'http://localhost:3021/dvds/';
+  getBooksEndPoint = 'http://localhost:3021/books/';
+  getFoodsEndPoint = 'http://localhost:3021/foods/';
+  getLaptopsEndPoint = 'http://localhost:3021/laptops/';
+  getToysEndPoint = 'http://localhost:3021/toys/';
 
   mockBooks: Book[] = [
     {
