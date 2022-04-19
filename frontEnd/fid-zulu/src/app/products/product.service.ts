@@ -17,11 +17,11 @@ export class ProductService {
   getBikesEndPoint = 'http://localhost:3021/bikes/';
   getDvdsEndPoint = 'http://localhost:3021/dvds/';
   getBooksEndPoint = 'http://localhost:3021/books/';
-  getFoodsEndPoint = 'http://localhost:3021/foods/';
+  getFoodsEndPoint = 'http://localhost:3021/food/';
   getLaptopsEndPoint = 'http://localhost:3021/laptops/';
   getToysEndPoint = 'http://localhost:3021/toys/';
 
-  
+
 
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
