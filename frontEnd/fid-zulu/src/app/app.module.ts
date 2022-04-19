@@ -12,6 +12,7 @@ import { BooksListComponent } from './books-list/books-list.component';
 import { ToysListComponent } from './toys-list/toys-list.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ShowAllListsComponent } from './show-all-lists/show-all-lists.component';
+import { HeaderFooterComponent } from './header-footer/header-footer.component';
 
 
 @NgModule({
@@ -24,13 +25,14 @@ import { ShowAllListsComponent } from './show-all-lists/show-all-lists.component
     BooksListComponent,
     ToysListComponent,
     NavBarComponent,
-    ShowAllListsComponent
+    ShowAllListsComponent,
+    HeaderFooterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

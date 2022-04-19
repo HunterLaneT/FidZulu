@@ -1,0 +1,18 @@
+header {
+    padding: 60px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 30px;
+}
+
+footer {
+    bottom: 0;
+    left: 0;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    padding: 2rem;
+    margin: 2rem;
+}
