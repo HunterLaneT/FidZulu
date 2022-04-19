@@ -20,11 +20,22 @@ router.get('/', function(req, res, next) {
   
 });
 
-router.get('/DVDs/:location', (req, res, next) => {
+const tax_rates={
+  "raleigh":0.075,
+  "durham":0.08
+};
+//get teams
+router.get('/dvds/team', (req,res,next) => {
+  res.setHeader('content-type', 'application/json');
+  res.end(JSON.stringify(team));
+});
+
+router.get('/dvds/:location', (req, res, next) => {
   const location = req.params.location;
-  let tax = 0;
-  if (location === "Raleigh") tax = 0.075;
-  else if (location === "Durham") tax = 0.08;
+  const tax = tax_rates[location];
+  if (tax=null) next(createError(404));
+  // if (location.toLowerCase() === "Raleigh") tax = 0.075;
+  // else if (location.toLowerCase() === "Durham") tax = 0.08;
   const raw = dvds.list();
   const result = raw.map(dvd => {
     dvd.price += dvd.price * tax;
@@ -35,15 +46,21 @@ res.setHeader('content-type', 'application/json');
 res.end(JSON.stringify(result));
 });
 
-router.get('/dvds/team', (req,res,next) => {
-  res.setHeader('content-type', 'application/json');
-  res.end(JSON.stringify(team));
-});
+
 
 router.post('/dvds/add', (req,res,next) => {
-  const newDVD = req.body;
-  books.add_DVD(newDVD);
+const newDVD = req.body;
+if (
+  Object.keys(newDVD).length === 5 && typeof (newDVD.title) === 'string'
+  && typeof (newDVD.mpaa_rating) === 'string' && typeof (newDVD.studio) === 'string'
+  && typeof (newDVD.time) === 'number' && typeof (newDVD.price) === 'number'
+) {
+  dvds.add_dvd(newDVD);
   res.end();
+}
+else {
+  next(createError(400));
+}
 });
 
 module.exports = router;

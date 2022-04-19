@@ -1,7 +1,7 @@
 const fs = require('fs');
+const file = './data/data.json';
 
 let read_json_file = () => {
-    let file = './data/data.json';
     return fs.readFileSync(file);
 }
 
@@ -12,8 +12,15 @@ exports.list = function() {
 exports.add_book = (book) => {
     let books = JSON.parse(read_json_file());
     books[books.length] = book;
-    fs.writeFile('./data/data.json',JSON.stringify(books), err => {
+    fs.writeFile(file, JSON.stringify(books), err => {
         if(err) console.log(err.message);
+        else console.log("Wrote to file successfully");
+    });
+};
+
+exports.reset_json = (json) => {
+    fs.writeFile(file, JSON.stringify(json), err => {
+        if (err) console.log(err.message);
         else console.log("Wrote to file successfully");
     });
 };
