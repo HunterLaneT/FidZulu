@@ -52,37 +52,37 @@ footer {
 }
 
 .bike-card {
-  border: 1px solid #1064f0;
+  /* border: 1px solid #1064f0; */
   margin-bottom: 15px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .book-card {
-  border: 1px solid #f8a800;
+  /* border: 1px solid #f8a800; */
   margin-bottom: 15px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .dvds-card {
-  border: 1px solid #F83050;
+  /* border: 1px solid #F83050; */
   margin-bottom: 15px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .food-card {
-  border: 1px solid #38c0e8;
+  /* border: 1px solid #38c0e8; */
   margin-bottom: 15px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .toys-card {
-  border: 1px solid #B03CF8;
+  /* border: 1px solid #B03CF8; */
   margin-bottom: 15px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .laptops-card {
-  border: 1px solid #00B448;
+  /* border: 1px solid #00B448; */
   margin-bottom: 15px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
