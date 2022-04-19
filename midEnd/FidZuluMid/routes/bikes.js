@@ -24,7 +24,7 @@ router.post('/add', function(req, res, next) {
 
     var newBike = req.body;
 
-    addBikess(newBike).then(data => {
+    addBikes(newBike).then(data => {
         res.send(data);
     }).catch(err => res.sendStatus(err.response.status));
 });
