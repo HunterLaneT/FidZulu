@@ -42,8 +42,8 @@ describe('FoodsListComponent', () => {
       },
     ];
 
-    const productService = jasmine.createSpyObj('productService', ['getFoods']);
-    productService.getFoods.and.returnValue(of(testFood));
+    const productService = jasmine.createSpyObj('productService', ['getFood']);
+    productService.getFood.and.returnValue(of(testFood));
 
     await TestBed.configureTestingModule({
       declarations: [ FoodsListComponent ],
