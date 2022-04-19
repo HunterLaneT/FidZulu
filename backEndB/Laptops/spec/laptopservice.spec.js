@@ -6,25 +6,25 @@ const laptop_data = require("../modules/laptops").list();
 console.log("Starting test");
 
 describe("Laptop RESTful service", () => {
-    describe("GET Laptops/NYC or any /misc", () => {
-        const url = base_url + "Laptops/all/NYC";
-        it("returns status code 200", done => {
+    describe("GET laptops/NYC or any /misc", () => {
+        const url = base_url + "laptops/NYC";
+        it("returns status code 404", done => {
             request.get(url, (err, res, body) => {
-                expect(res.statusCode).toBe(200);
+                expect(res.statusCode).toBe(404);
                 done();
             });
         });
 
-        it("Any other city should be no tax", done => {
-            request.get(url, (err, res, body) => {
-                const laptops = JSON.parse(body);
-                expect(laptops[0].price).toBe(laptop_data[0].price.toFixed(2));
-                done();
-        });
-    });
+    //     it("Any other city should be no tax", done => {
+    //         request.get(url, (err, res, body) => {
+    //             const laptops = JSON.parse(body);
+    //             expect(laptops[0].price).toBe(laptop_data[0].price.toFixed(2));
+    //             done();
+    //     });
+    // });
 
-        describe("GET Laptops/Durham/", () => {
-            const url = base_url + "Laptops/all/Raleigh";
+        describe("GET laptops/durham/", () => {
+            const url = base_url + "laptops/raleigh";
             it("returns status code 200", done => {
                 request.get(url, (err, res, body) => {
                     expect(res.statusCode).toBe(200);
@@ -41,8 +41,8 @@ describe("Laptop RESTful service", () => {
         });
     });
 
-        describe("GET Laptops/Durham/", () => {
-            const url = base_url + "Laptops/all/Durham";
+        describe("GET laptops/durham/", () => {
+            const url = base_url + "laptops/durham";
             it("returns status code 200", done => {
                 request.get(url, (err, res, body) => {
                     expect(res.statusCode).toBe(200);
@@ -58,8 +58,8 @@ describe("Laptop RESTful service", () => {
         });
         });
 
-        describe("GET Laptops/team/", () => {
-            const url = base_url + "Laptops/team";
+        describe("GET laptops/team/", () => {
+            const url = base_url + "laptops/team";
             it("returns status code 200", done => {
                 request.get(url, (err, res, body) => {
                     expect(res.statusCode).toBe(200);
@@ -74,6 +74,26 @@ describe("Laptop RESTful service", () => {
             });
     });
     });
+    describe("POST add to  laptops/add", () => {
+        const url = base_url + "laptops/add/";
+        const tempLaptop = {
+            product: "ThinkPad But More",
+            brand: "Lenovoooo",
+            CPU: "core i15-9990x",
+            memory: "128GB",
+            price: 373325.09
+        };
+        it("adds valid laptop", done => {
+            request.post(url,{body: tempLaptop, json: true}, (err,res,body) => {
+                request.get(base_url+"laptops/raleigh/", (err,res,body) => {
+                    const laptops = JSON.parse(body);
+                    expect(laptops.length).toBe(5);
+                    expect(res.statusCode).toBe(200);
+                    done();
+                });
+            });
+        });
+    }); 
 });
 });
 })
