@@ -17,7 +17,13 @@ export class ToysListComponent implements OnInit {
 
   getToys()  {
     this.productService.getToys(this.city)
-            .subscribe(data => this.toysList = data);
+    .subscribe({
+      next : (data) => {
+        this.toysList = data;
+        this.errorMessage = '';
+      },
+        error: (e) => this.errorMessage = e
+      });
   }
 
   constructor(private productService: ProductService
@@ -32,7 +38,7 @@ export class ToysListComponent implements OnInit {
     if(this.city == null){
       this.city = "Durham";
     }
-    
+
     this.getToys();
   }
 

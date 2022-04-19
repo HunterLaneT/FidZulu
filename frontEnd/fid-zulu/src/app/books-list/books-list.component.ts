@@ -15,9 +15,15 @@ export class BooksListComponent implements OnInit {
   books: Book[] = []
 
   city: string = "";
-  getBooks(){
+  getBooks() {
     this.productService.getBooks(this.city)
-            .subscribe(data => this.books = data);
+    .subscribe({
+      next : (data) => {
+        this.books = data;
+        this.errorMessage = '';
+      },
+        error: (e) => this.errorMessage = e
+      });
   }
 
   constructor(private productService: ProductService

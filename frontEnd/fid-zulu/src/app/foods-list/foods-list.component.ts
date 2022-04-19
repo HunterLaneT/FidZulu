@@ -17,7 +17,13 @@ export class FoodsListComponent implements OnInit {
 
   getFood() {
     this.productService.getFood(this.city)
-            .subscribe(data => this.foods = data);
+    .subscribe({
+      next : (data) => {
+        this.foods = data;
+        this.errorMessage = '';
+      },
+        error: (e) => this.errorMessage = e
+      });
   }
 
   constructor(private productService: ProductService

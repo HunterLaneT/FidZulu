@@ -16,8 +16,14 @@ export class LaptopsListComponent implements OnInit {
   city: string = "";
 
   getLaptops(){
-    this.productService.getLaptops( this.city)
-            .subscribe(data => this.laptops = data);
+    this.productService.getLaptops(this.city)
+    .subscribe({
+      next : (data) => {
+        this.laptops = data;
+        this.errorMessage = '';
+      },
+        error: (e) => this.errorMessage = e
+      });
   }
 
   constructor(private productService: ProductService
@@ -32,7 +38,7 @@ export class LaptopsListComponent implements OnInit {
     if(this.city == null){
       this.city = "Durham";
     }
-    
+
     this.getLaptops();
   }
 

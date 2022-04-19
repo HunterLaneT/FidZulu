@@ -16,9 +16,15 @@ export class BikesListComponent implements OnInit {
   city: string = "";
   
 
-  getBikes(){
-    this.productService.getBikes( this.city )
-            .subscribe(data => this.bikes = data);
+  getBikes() {
+    this.productService.getBikes(this.city)
+    .subscribe({
+      next : (data) => {
+        this.bikes = data;
+        this.errorMessage = '';
+      },
+        error: (e) => this.errorMessage = e
+      });
   }
 
   constructor(private productService: ProductService
