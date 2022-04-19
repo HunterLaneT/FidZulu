@@ -55,4 +55,37 @@ describe("Laptops Mid End Tests", () => {
             });
         });
     });
+
+    describe("GET /laptops/teams", () => {
+        it("returns a 200 status code", (done) => {
+            let path = "/laptops/teams";
+
+            nock(base_url).get(path).reply(200, {
+                data: {
+                    "name" : "Allen Wong"
+                }
+            });
+
+            request.get(base_url + path, (err, res, body) => {
+                expect(res.statusCode).toBe(200);
+                done();
+            });
+        });
+        it("returns Allen Wong", (done) => {
+            let path = "/laptops/teams";
+            
+            nock(base_url).get(path).reply(200, {
+                data: {
+                    "name" : "Allen Wong"
+                }
+            });
+
+            request.get(base_url + path, (err, res, body) => {
+                expect(body).toBeTruthy();
+                expect(body).toContain("Allen Wong");
+                done();
+            });
+        });
+
+    });
 });
