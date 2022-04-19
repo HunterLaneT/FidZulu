@@ -1,20 +1,27 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Product</th>
-      <th scope="col">Brand</th>
-      <th scope="col">CPU</th>
-      <th scope="col">Memory</th>
-      <th scope="col">Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr mdbTableCol *ngFor="let laptop of laptops" >
-      <td>{{laptop.product}}</td>
-      <td>{{laptop.brand}}</td>
-      <td>{{laptop.CPU}}</td>
-      <td>{{laptop.memory}}</td>
-      <td>{{laptop.price | currency}}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="laptops-card card">
+  <h3 class="title laptops">Laptops</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Product</th>
+        <th scope="col">Brand</th>
+        <th scope="col">CPU</th>
+        <th scope="col">Memory</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let laptop of laptops">
+        <td>{{ laptop.product }}</td>
+        <td>{{ laptop.brand }}</td>
+        <td>{{ laptop.CPU }}</td>
+        <td>{{ laptop.memory }}</td>
+        <td>{{ laptop.price | currency }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="errorMessage" class="error">
+  {{ errorMessage }}
+</div>

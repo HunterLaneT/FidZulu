@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-show-all-lists',
-  templateUrl: './show-all-lists.component.html',
+  selector: 'app-header-footer',
+  templateUrl: './header-footer.component.html',
   styleUrls: ['../app.component.css']
 })
-export class ShowAllListsComponent implements OnInit {
+export class HeaderFooterComponent implements OnInit {
 
   constructor() { }
 

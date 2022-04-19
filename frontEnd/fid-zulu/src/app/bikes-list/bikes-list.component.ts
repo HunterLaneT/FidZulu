@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Bike } from '../models/bike.model';
 import { ProductService } from '../products/product.service';
 
@@ -9,55 +10,44 @@ import { ProductService } from '../products/product.service';
 })
 export class BikesListComponent implements OnInit {
 
-  // mockBikes: Bike[] = [
-  //   {
-  //     "name": "Mamba Sport 12\" Balance Bike",
-  //     "brand": "Mamba Bikes",
-  //     "color": "black",
-  //     "price": 75.88
-  //   },
-  //   {
-  //     "name": "DJ Fat Bike 500W",
-  //     "brand": "DJ Bikes",
-  //     "color": "grey",
-  //     "price": 1599.86
-  //   },
-  //   {
-  //     "name": "Kobe Aluminum Balance",
-  //     "brand": "Kobe",
-  //     "color": "blue",
-  //     "price": 88.56
-  //   },
-  //   {
-  //     "name": "Pomona Men's Cruiser Bike",
-  //     "brand": "Northwoods",
-  //     "color": "silver",
-  //     "price": 221.36
-  //   }
-  // ]
+  errorMessage: string = "";
 
-  bikes: Bike[] = []
+  bikes: Bike[] = [];
+  city: string = "";
+  
 
-  getBikes(){
-
-    this.bikes = this.productService.getBikes();
-
-    // this.bikesService.getBikes()
-    // .subscribe({
-    //   next : (data) => {
-    //     this.bikes = data;
-    //     this.errorMessage = '';
-    //   },
-    //     error: (e) => this.errorMessage = e
-    //   });
-
-
+  getBikes() {
+    this.productService.getBikes(this.city)
+    .subscribe({
+      next : (data) => {
+        this.bikes = data;
+        this.errorMessage = '';
+      },
+        error: (e) => this.errorMessage = e
+      });
   }
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService
+    , private route: ActivatedRoute) { }
+
+    
 
   ngOnInit(): void {
+
+    this.route.queryParams.subscribe(params =>{
+      
+      this.city = params['city'];
+
+     
+    }); 
+
+    if(this.city == null){
+      this.city = "Durham";
+    }
+
     this.getBikes();
+
   }
+
 
 }

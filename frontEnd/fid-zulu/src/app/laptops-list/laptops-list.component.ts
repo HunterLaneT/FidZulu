@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Laptop } from '../models/laptop';
 import { ProductService } from '../products/product.service';
 
@@ -9,17 +10,35 @@ import { ProductService } from '../products/product.service';
 })
 export class LaptopsListComponent implements OnInit {
 
+  errorMessage: string = "";
+
   laptops: Laptop[] = []
+  city: string = "";
 
   getLaptops(){
-
-    this.laptops = this.productService.getLaptops();
-
+    this.productService.getLaptops(this.city)
+    .subscribe({
+      next : (data) => {
+        this.laptops = data;
+        this.errorMessage = '';
+      },
+        error: (e) => this.errorMessage = e
+      });
   }
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService
+    , private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this.route.queryParams.subscribe(params =>{
+      this.city = params['city'];
+    }); 
+
+    if(this.city == null){
+      this.city = "Durham";
+    }
+
     this.getLaptops();
   }
 

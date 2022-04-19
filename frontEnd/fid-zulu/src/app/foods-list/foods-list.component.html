@@ -1,4 +1,6 @@
-<table class="table">
+<div class="food-card card">
+  <h3 class="title food">Food</h3>
+  <table class="table">
     <thead>
       <tr>
         <th scope="col">Name</th>
@@ -9,12 +11,17 @@
       </tr>
     </thead>
     <tbody>
-      <tr mdbTableCol *ngFor="let food of foods" >
-        <td>{{food.name}}</td>
-        <td>{{food.brand}}</td>
-        <td>{{food.weight}}</td>
-        <td>{{food.calories}}</td>
-        <td>{{food.price | currency}}</td>
+      <tr mdbTableCol *ngFor="let food of foods">
+        <td>{{ food.name }}</td>
+        <td>{{ food.brand }}</td>
+        <td>{{ food.weight }}</td>
+        <td>{{ food.calories }}</td>
+        <td>{{ food.price | currency }}</td>
       </tr>
     </tbody>
   </table>
+</div>
+
+<div *ngIf="errorMessage" class="error">
+  {{ errorMessage }}
+</div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Book } from '../models/book.model';
+import { ProductService } from '../products/product.service';
 
 @Component({
   selector: 'app-books-list',
@@ -8,40 +10,35 @@ import { Book } from '../models/book.model';
 })
 export class BooksListComponent implements OnInit {
 
-  mockBooks: Book[] = [
-    {
-      "title": "Lord of the Rings",
-      "author": "J.R.R Tolkien",
-      "price": 25.99,
-      "isbn": "9780261102385",
-      "publisher": "HarperCollins"
-    },
-    {
-      "title": "The Hobbit",
-      "author": "J.R.R Tolkien",
-      "price": 9.88,
-      "isbn": "0261102214",
-      "publisher": "HarperCollins"
-    },
-    {
-      "title": "Lord of Souls",
-      "author": "Greg Keyes",
-      "price": 12.98,
-      "isbn": "0345508025",
-      "publisher": "Del Rey"
-    },
-    {
-      "title": "Chronicles of Narnia",
-      "author": "C. S. Lewis",
-      "price": 41.77,
-      "isbn": "0064471195",
-      "publisher": "HarperCollins"
-    }
-  ]
+  errorMessage: string = "";
 
-  constructor() { }
+  books: Book[] = []
+
+  city: string = "";
+  getBooks() {
+    this.productService.getBooks(this.city)
+    .subscribe({
+      next : (data) => {
+        this.books = data;
+        this.errorMessage = '';
+      },
+        error: (e) => this.errorMessage = e
+      });
+  }
+
+  constructor(private productService: ProductService
+    , private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params =>{
+      this.city = params['city'];
+    }); 
+
+    if(this.city == null){
+      this.city = "Durham";
+    }
+
+    this.getBooks();
   }
 
 }
