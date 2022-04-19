@@ -18,6 +18,6 @@ async function getBooks(location) {
             console.log(response.data);
             return response.data
         });
-};
+}; 
 
 module.exports = router;
