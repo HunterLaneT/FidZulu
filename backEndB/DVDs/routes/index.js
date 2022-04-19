@@ -4,7 +4,7 @@ const router = express.Router();
 
 const dvds = require('../modules/dvds')
 const url = require('url');
-const team = {
+const team = [{
   "team": "Back-End B",
   "membersNames": [
     "Will Berner",
@@ -13,7 +13,10 @@ const team = {
     "Ryland Dreibelbis",
     "Conner Bluck"
   ]
-}
+
+},
+
+]
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -32,18 +35,18 @@ router.get('/dvds/team', (req,res,next) => {
 
 router.get('/dvds/:location', (req, res, next) => {
   const location = req.params.location;
-  const tax = tax_rates[location];
-  if (tax=null) next(createError(404));
-  // if (location.toLowerCase() === "Raleigh") tax = 0.075;
-  // else if (location.toLowerCase() === "Durham") tax = 0.08;
-  const raw = dvds.list();
-  const result = raw.map(dvd => {
-    dvd.price += dvd.price * tax;
-    dvd.price = dvd.price.toFixed(2);
-    return dvd;
-  });
-res.setHeader('content-type', 'application/json');
-res.end(JSON.stringify(result));
+  const tax = tax_rates[location.toLowerCase()];
+  if (tax) {
+    const raw = dvds.list();
+    const result = raw.map(dvd => {
+      dvd.price = dvd.price * (1 + tax);
+      dvd.price = parseFloat(dvd.price.toFixed(2));
+      return dvd;
+    });
+    res.setHeader('content-type', 'application/json');
+    res.end(JSON.stringify(result));
+  }
+  else next(createError(404));
 });
 
 

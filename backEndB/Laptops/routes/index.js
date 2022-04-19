@@ -69,7 +69,8 @@ router.post('/laptops/add', (req,res,next) => {
     res_end();
   }
   else{
-    res.sendStatus(400);
+    next(createError(400));
+    // res.sendStatus(400);
   }
 });
 
