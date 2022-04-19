@@ -12,8 +12,41 @@ router.get('/:location', function(req, res, next) {
     }).catch(err => console.log(err));
 });
 
+/* Add a DVD */
+router.post('/add', function(req, res, next) {
+
+    var newDVD = req.body;
+
+    addDVDs(newDVD).then(data => {
+        res.send(data);
+    }).catch(err => res.sendStatus(err.response.status));
+});
+
 async function getDVDs(location) {
     return axios.get('http://localhost:3035/dvds/' + location)
+        .then(response => {
+            console.log(response.data);
+            return response.data
+        });
+};
+
+async function addDVDs(DVD) {
+    return axios.post('http://localhost:3035/dvds/add', DVD)
+    .then(response => {
+        console.log(response.data);
+        return response.data
+    });
+};
+
+router.get('/teams', async function(req, res, next) {
+
+    getTeams().then(data => {
+        res.send(data);
+    }).catch(err => console.log(err));
+});
+
+async function getTeams() {
+    return axios.get('http://localhost:3035/dvds/teams')
         .then(response => {
             console.log(response.data);
             return response.data

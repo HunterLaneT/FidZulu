@@ -10,7 +10,22 @@ router.get('/:location', async function(req, res, next) {
     getBikes(location).then(data => {
         res.send(data);
     }).catch(err => console.log(err));
+});
 
+/* Add a Bike */
+router.post('/add', function(req, res, next) {
+
+    var newBike = req.body;
+
+    addBikess(newBike).then(data => {
+        res.send(data);
+    }).catch(err => res.sendStatus(err.response.status));
+});
+
+router.get('/teams', async function(req, res, next) {
+    getTeams().then(data => {
+        res.send(data);
+    }).catch(err => console.log(err));
 });
 
 async function getBikes(location) {
@@ -19,6 +34,22 @@ async function getBikes(location) {
             console.log(response.data);
             return response.data
         });
+};
+
+async function getTeams() {
+    return axios.get('http://localhost:3031/bikes/teams')
+        .then(response => {
+            console.log(response.data);
+            return response.data
+        });
+};
+
+async function addBikes(book) {
+    return axios.post('http://localhost:3031/bikes/add', book)
+    .then(response => {
+        console.log(response.data);
+        return response.data
+    });
 };
 
 module.exports = router;
