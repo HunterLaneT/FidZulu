@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from '../products/product.service';
 import { BooksListComponent } from './books-list.component';
 import { Book } from '../models/book.model';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('BooksListComponent', () => {
   let component: BooksListComponent;
@@ -47,7 +48,8 @@ describe('BooksListComponent', () => {
 
     await TestBed.configureTestingModule({
       declarations: [ BooksListComponent ],
-      imports: [HttpClientModule],
+      imports: [HttpClientModule,
+                RouterTestingModule],
       providers: [
         {provide: ProductService, useValue: productService}
       ]

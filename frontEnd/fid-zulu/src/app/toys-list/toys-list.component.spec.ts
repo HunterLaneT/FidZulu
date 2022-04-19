@@ -4,6 +4,7 @@ import { ToysListComponent } from './toys-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from '../products/product.service';
 import { Toys } from '../models/toys';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ToysListComponent', () => {
   let component: ToysListComponent;
@@ -43,7 +44,8 @@ describe('ToysListComponent', () => {
 
     await TestBed.configureTestingModule({
       declarations: [ ToysListComponent ],
-      imports: [HttpClientModule],
+      imports: [HttpClientModule,
+                RouterTestingModule],
       providers: [
         {provide: ProductService, useValue: productService}
       ]
