@@ -4,6 +4,7 @@ import { of } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from '../products/product.service';
 import { DVDsListComponent } from './dvds-list.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('DVDsListComponent', () => {
   let component: DVDsListComponent;
@@ -47,7 +48,8 @@ describe('DVDsListComponent', () => {
 
     await TestBed.configureTestingModule({
       declarations: [ DVDsListComponent ],
-      imports: [HttpClientModule],
+      imports: [HttpClientModule,
+                RouterTestingModule],
       providers: [
         {provide: ProductService, useValue: productService}
       ]
