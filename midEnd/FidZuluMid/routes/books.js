@@ -1,5 +1,5 @@
 var express = require('express');
-const request = require('request');
+const axios = require('axios');
 var router = express.Router();
 
 /* Get the teams*/
