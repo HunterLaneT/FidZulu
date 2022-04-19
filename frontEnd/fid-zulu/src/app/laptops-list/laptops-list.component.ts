@@ -14,9 +14,8 @@ export class LaptopsListComponent implements OnInit {
   laptops: Laptop[] = []
 
   getLaptops(){
-
-    this.laptops = this.productService.getLaptops();
-
+    this.productService.getLaptops()
+            .subscribe(data => this.laptops = data);
   }
 
   constructor(private productService: ProductService) { }

@@ -5,7 +5,7 @@ import { ProductService } from '../products/product.service';
 @Component({
   selector: 'app-dvds-list',
   templateUrl: './dvds-list.component.html',
-  styleUrls: ['./dvds-list.component.css'],
+  styleUrls: ['../app.component.css'],
 })
 export class DVDsListComponent implements OnInit {
 
@@ -14,7 +14,8 @@ export class DVDsListComponent implements OnInit {
   dvds: Dvd[] = [];
 
   getDvds() {
-    this.dvds = this.productService.getDvds();
+    this.productService.getDvds()
+            .subscribe(data => this.dvds = data);
   }
 
   constructor(private productService: ProductService) {}

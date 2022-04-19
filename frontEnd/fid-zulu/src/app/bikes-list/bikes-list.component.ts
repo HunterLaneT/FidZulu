@@ -14,7 +14,6 @@ export class BikesListComponent implements OnInit {
   bikes: Bike[] = []
 
   getBikes(){
-
     this.productService.getBikes()
             .subscribe(data => this.bikes = data);
   }

@@ -163,20 +163,24 @@ export class ProductService {
     .pipe(catchError(this.handleError));
   }
 
-  getDvds(): Dvd[] {
-    return this.mockDvds;
+  getDvds(): Observable<Dvd[]> {
+    return this.http.get<Dvd[]>(this.getDvdsEndPoint)
+    .pipe(catchError(this.handleError));
   }
 
-  getFood(): Food[] {
-    return this.mockFood;
+  getFood(): Observable<Food[]> {
+    return this.http.get<Food[]>(this.getFoodsEndPoint)
+    .pipe(catchError(this.handleError));
   }
 
-  getToys(): Toys[] {
-    return this.mockToys;
+  getToys(): Observable<Toys[]> {
+    return this.http.get<Toys[]>(this.getToysEndPoint)
+    .pipe(catchError(this.handleError));
   }
 
-  getLaptops(): Laptop[] {
-    return this.mockLaptops;
+  getLaptops(): Observable<Laptop[]> {
+    return this.http.get<Laptop[]>(this.getLaptopsEndPoint)
+    .pipe(catchError(this.handleError));
   }
 
   constructor(private http: HttpClient) {}
