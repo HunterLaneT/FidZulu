@@ -5,16 +5,46 @@ const router = express.Router();
 const laptops = require('../modules/laptops');
 const url = require('url');
 
-const team = {
-  "team": "backEndB Team",
-  "membersNames" : [
-    "Matthew Yeakel",
-    "Will Berner",
-    "Rahul Gawdi",
-    "Ryland Dreibelbis",
-    "Conner Bluck"
-]
-}
+const team = [
+  {
+    "team": "backEndB Team",
+    "membersNames" : [
+      "Matthew Yeakel",
+      "Will Berner",
+      "Rahul Gawdi",
+      "Ryland Dreibelbis",
+      "Conner Bluck"
+    ]
+  },
+  {
+    "team": "MidTierA Team",
+    "membersNames" : ["Allen Wong",
+     "Brandon Daggerhart", 
+     "Joel Parham",
+      "Simon Hayes", 
+      "Thomas Poole"
+    ]
+  },
+  {
+    "team": "MidTierB Team",
+    "membersNames" : ["Brandon Derricho",
+     "Makeda Phoenix", 
+     "Seth Schallau", 
+     "Waseem Hanna",
+      "Zachary Boutchyard"]
+  },
+  {
+    "team": "FrontEnd Team",
+    "membersNames" : ["Ky Hampton", 
+    "Bryce Rooney", 
+    "Micah Haycraft", 
+    "Hunter Turner", 
+    "Dhruvenkumar Chauhan"]
+    
+  }
+];
+  
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

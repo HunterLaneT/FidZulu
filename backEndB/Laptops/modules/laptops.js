@@ -1,4 +1,5 @@
 const fs = require('fs');
+const file = './data/data.json';
 
 let read_json_file = () => {
     let file = './data/data.json';
@@ -17,3 +18,10 @@ exports.add_laptop = (laptop) => {
         else console.log("Wrote to file successfully");
     });
 };
+
+exports.reset_json = (json) => {
+    fs.writeFile(file, JSON.stringify(json), err => {
+        if (err) console.log(err.message);
+        else console.log("Wrote to file successfully");
+    });
+}

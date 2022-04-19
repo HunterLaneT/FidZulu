@@ -2,6 +2,7 @@ let request = require("request");
 
 const base_url = "http://localhost:3036/";
 const laptop_data = require("../modules/laptops").list();
+const laptop_data_nolist =require("../modules/laptops");
 
 console.log("Starting test");
 
@@ -69,7 +70,7 @@ describe("Laptop RESTful service", () => {
             it("Expect at least one person", done => {
                 request.get(url, (err, res, body) => {
                     const team = JSON.parse(body);
-                    expect((team.membersNames.length)>=1).toBeTruthy();
+                    expect((team[0].membersNames.length)>=1).toBeTruthy();
                     done();
             });
     });
@@ -83,16 +84,22 @@ describe("Laptop RESTful service", () => {
             memory: "128GB",
             price: 373325.09
         };
+
+
         it("adds valid laptop", done => {
+            const original_laptops = laptop_data;
             request.post(url,{body: tempLaptop, json: true}, (err,res,body) => {
                 request.get(base_url+"laptops/raleigh/", (err,res,body) => {
                     const laptops = JSON.parse(body);
-                    expect(laptops.length).toBe(5);
+                    expect(laptops.length).toBe(original_laptops.length + 1);
                     expect(res.statusCode).toBe(200);
+                    laptop_data_nolist.reset_json(original_laptops);
                     done();
                 });
             });
         });
+
+       
     }); 
 });
 });
