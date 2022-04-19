@@ -1,0 +1,79 @@
+.card {
+    border: 1px solid #111;
+    padding: 1rem;
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+}
+
+.bike-card {
+    border: 1px solid #1064f0;
+    margin-bottom: 15px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.book-card {
+    border: 1px solid #f8a800;
+    padding: 1rem;
+    margin-bottom: 15px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.dvds-card {
+    border: 1px solid #F83050;
+    padding: 1rem;
+    margin-bottom: 15px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.food-card {
+    border: 1px solid #38c0e8;
+    padding: 1rem;
+    margin-bottom: 15px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.toys-card {
+    border: 1px solid #B03CF8;
+    padding: 1rem;
+    margin-bottom: 15px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.laptops-card {
+    border: 1px solid #00B448;
+    padding: 1rem;
+    margin-bottom: 15px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.title{
+    text-align: center;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 35px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.bikes{
+    background-color: #1064f0;
+    height: 100%;
+}
+
+.toys {
+    background-color: #B03CF8;
+}
+
+.laptops {
+    background-color: #00B448;
+}
+
+.dvd {
+    background-color: #F83050;
+}
+
+.books {
+    background-color: #f8a800;
+}
+
+.food {
+    background-color: #38c0e8;
+}
