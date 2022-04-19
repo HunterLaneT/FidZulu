@@ -5,36 +5,16 @@ import { Food } from '../models/food';
 import { Laptop } from '../models/laptop';
 import { Toys } from '../models/toys';
 
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError, Observable, throwError } from 'rxjs';
+
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  mockBikes: Bike[] = [
-    {
-      name: 'Mamba Sport 12" Balance Bike',
-      brand: 'Mamba Bikes',
-      color: 'black',
-      price: 75.88,
-    },
-    {
-      name: 'DJ Fat Bike 500W',
-      brand: 'DJ Bikes',
-      color: 'grey',
-      price: 1599.86,
-    },
-    {
-      name: 'Kobe Aluminum Balance',
-      brand: 'Kobe',
-      color: 'blue',
-      price: 88.56,
-    },
-    {
-      name: "Pomona Men's Cruiser Bike",
-      brand: 'Northwoods',
-      color: 'silver',
-      price: 221.36,
-    },
-  ];
+
+  getBikesEndPoint = 'http://localhost:3021/bikes/Durham';
+
 
   mockDvds: Dvd[] = [
     {
@@ -67,119 +47,132 @@ export class ProductService {
     },
   ];
 
-  mockFood: Food[] =
-  [
+  mockFood: Food[] = [
     {
-      "name": "The Original Sandwich",
-      "brand": "Oreo",
-      "weight": "303g",
-      "calories": 405,
-      "price": 2.85
+      name: 'The Original Sandwich',
+      brand: 'Oreo',
+      weight: '303g',
+      calories: 405,
+      price: 2.85,
     },
     {
-      "name": "Peanut Butter",
-      "brand": "KRAFT",
-      "weight": "2000g",
-      "calories": 726,
-      "price": 9.39
+      name: 'Peanut Butter',
+      brand: 'KRAFT',
+      weight: '2000g',
+      calories: 726,
+      price: 9.39,
     },
     {
-      "name": "Beef Ravioli",
-      "brand": "Chef Boyardee",
-      "weight": "425g",
-      "calories": 250,
-      "price": 2.45
+      name: 'Beef Ravioli',
+      brand: 'Chef Boyardee',
+      weight: '425g',
+      calories: 250,
+      price: 2.45,
     },
     {
-      "name": "Medium Cheddar Cheese",
-      "brand": "MOON CHEESE",
-      "weight": "57g",
-      "calories": 525,
-      "price": 5.87
-    }
+      name: 'Medium Cheddar Cheese',
+      brand: 'MOON CHEESE',
+      weight: '57g',
+      calories: 525,
+      price: 5.87,
+    },
   ];
 
-  mockToys : Toys[] = [
+  mockToys: Toys[] = [
     {
-      "name": "Medical Kit",
-      "brand": "Fisher-Price",
-      "ageGroup": "3 to 9",
-      "prize": 20.41
+      name: 'Medical Kit',
+      brand: 'Fisher-Price',
+      ageGroup: '3 to 9',
+      prize: 20.41,
     },
     {
-      "name": "Ferry Boat",
-      "brand": "Green Toys",
-      "ageGroup": "3 to 6",
-      "prize": 13.26
+      name: 'Ferry Boat',
+      brand: 'Green Toys',
+      ageGroup: '3 to 6',
+      prize: 13.26,
     },
     {
-      "name": "Rock-a-Stack",
-      "brand": "Fisher-Price",
-      "ageGroup": "1 to 5",
-      "prize": 5.99
+      name: 'Rock-a-Stack',
+      brand: 'Fisher-Price',
+      ageGroup: '1 to 5',
+      prize: 5.99,
     },
     {
-      "name": "Stack Up Cups",
-      "brand": "The First Years",
-      "ageGroup": "0 to 3",
-      "prize": 3.99
-    }
-  ]
+      name: 'Stack Up Cups',
+      brand: 'The First Years',
+      ageGroup: '0 to 3',
+      prize: 3.99,
+    },
+  ];
 
   mockLaptops: Laptop[] = [
     {
-      "product": "ThinkPad T430s",
-      "brand": "Lenovo",
-      "CPU": "core i5-3320",
-      "memory": "8GB",
-      "price": 325.09
+      product: 'ThinkPad T430s',
+      brand: 'Lenovo',
+      CPU: 'core i5-3320',
+      memory: '8GB',
+      price: 325.09,
     },
     {
-      "product": "MacBook Air",
-      "brand": "Apple",
-      "CPU": "core i5 1.6GHz",
-      "memory": "4GB",
-      "price": 621.78
+      product: 'MacBook Air',
+      brand: 'Apple',
+      CPU: 'core i5 1.6GHz',
+      memory: '4GB',
+      price: 621.78,
     },
     {
-      "product": "Ideapad 330",
-      "brand": "Lenovo",
-      "CPU": "core i3-8130U",
-      "memory": "4GB",
-      "price": 459.98
+      product: 'Ideapad 330',
+      brand: 'Lenovo',
+      CPU: 'core i3-8130U',
+      memory: '4GB',
+      price: 459.98,
     },
     {
-      "product": "MacBook Pro",
-      "brand": "Apple",
-      "CPU": "core i5 2.5GHz",
-      "memory": "4GB",
-      "price": 2999.99
+      product: 'MacBook Pro',
+      brand: 'Apple',
+      CPU: 'core i5 2.5GHz',
+      memory: '4GB',
+      price: 2999.99,
+    },
+  ];
+
+  handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      // A client-side or network error occurred. Handle it.
+      console.error('An error occurred:', error.error.message);
+    } else {
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues
+      console.error(
+        `Backend returned code ${error.status}, body was: ${error.error}`
+      );
     }
-  ]
+    // return an observable with a user-facing error message
+    return throwError(
+      () => 'Unable to contact service; please try again later.'
+    );
+  }
 
-  // getStocks() : Observable<Stock[]>  {
-  //   return this.http.get<Stock[]>(this.url).pipe(catchError(this.handleError));
-  // }
-
-  getBikes(): Bike[] {
-    return this.mockBikes;
+  getBikes():  Observable<Bike[]> {
+    return this.http.get<Bike[]>(this.getBikesEndPoint)
+    .pipe(catchError(this.handleError));
   }
 
   getDvds(): Dvd[] {
     return this.mockDvds;
   }
 
-  getFood() : Food[] {
-    return this.mockFood
+  getFood(): Food[] {
+    return this.mockFood;
   }
 
-  getToys(): Toys[]{
+  getToys(): Toys[] {
     return this.mockToys;
   }
 
-  getLaptops(): Laptop[]{
+  getLaptops(): Laptop[] {
     return this.mockLaptops;
   }
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
 }

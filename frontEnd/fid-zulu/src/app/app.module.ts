@@ -12,6 +12,7 @@ import { BooksListComponent } from './books-list/books-list.component';
 import { ToysListComponent } from './toys-list/toys-list.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ShowAllListsComponent } from './show-all-lists/show-all-lists.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { ShowAllListsComponent } from './show-all-lists/show-all-lists.component
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
