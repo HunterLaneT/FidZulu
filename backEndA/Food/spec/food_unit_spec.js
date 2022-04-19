@@ -23,9 +23,8 @@ describe("Unit tests on food module", () => {
         });
         //negative test to load food from China (does not exist)
         it("with invalid location China", () => {
-            expect( () => {
-                food.query_by_arg("China");
-            }).toThrow("arg is not defined");
+            let results = food.query_by_arg("China");
+            expect(results).toBeNull();
         });
        
     });

@@ -4,7 +4,7 @@ const base_url = 'http://localhost:3032/';
 const food_url = base_url + 'food/Raleigh';
 const not_found_url = base_url + 'food/';
 
-describe("Bikes server bikes endpoint tests", function () {
+describe("Food server food endpoint tests", function () {
     describe("GET /food/Raleigh", () => {
         it("returns status code 200",  (done) => {
             request.get(food_url, (error, response, body) => {
@@ -24,6 +24,14 @@ describe("Bikes server bikes endpoint tests", function () {
     describe("GET /food/", () => {
         it("returns status code 404",  (done) => {
             request.get(not_found_url, (error, response, body) => {
+                expect(response.statusCode).toBe(404);
+                done();
+            });
+        });
+    });
+    describe("GET /food/China", () => {
+        it("returns status code 404",  (done) => {
+            request.get(not_found_url + "China", (error, response, body) => {
                 expect(response.statusCode).toBe(404);
                 done();
             });

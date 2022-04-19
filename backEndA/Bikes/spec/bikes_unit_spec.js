@@ -23,9 +23,8 @@ describe("Unit tests on bikes module", () => {
         });
         //negative test to load bikes from China (does not exist)
         it("with invalid location China", () => {
-            expect( () => {
-                bikes.query_by_arg("China");
-            }).toThrow("arg is not defined");
+            let results = bikes.query_by_arg("China");
+            expect(results).toBeNull();
         });
        
     });

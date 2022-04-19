@@ -29,4 +29,12 @@ describe("Bikes server bikes endpoint tests", function () {
             });
         });
     });
+    describe("GET /bikes/China", () => {
+        it("returns status code 404",  (done) => {
+            request.get(not_found_url + "China", (error, response, body) => {
+                expect(response.statusCode).toBe(404);
+                done();
+            });
+        });
+    });
 });

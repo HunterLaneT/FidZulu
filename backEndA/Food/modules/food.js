@@ -11,7 +11,7 @@ exports.list = () => {
 
 exports.query_by_arg = (value) => {
     if (value !== "Raleigh" && value !== "Durham"){
-        throw new Error("Unknow parameter " + arg);
+        return null;
     }
     let results = JSON.parse(read_json_file());
     console.log("query by location: " + value);
@@ -26,3 +26,32 @@ exports.query_by_arg = (value) => {
     }
     return results;
 };
+
+exports.post_food = (food) => {
+    if (food.hasOwnProperty("name") && food.hasOwnProperty("brand") && food.hasOwnProperty("weight") && food.hasOwnProperty("calories") 
+    && food.hasOwnProperty("price") && Object.keys(food).length == 5) {
+        let results = JSON.parse(read_json_file());
+        results[results.length] = food;
+        const data = JSON.stringify(results);
+        fs.writeFile("../Resources/Foodjson.json", data, err=>{
+            if(err){
+                console.log("Error writing file" ,err)
+            } else {
+                console.log('JSON data is written to the file successfully')
+            }
+        })
+        return food;
+    }
+    throw new Error("Invalid food object: " + food);
+}
+
+exports.reset_json = (content) => {
+    const data = JSON.stringify(content);
+        fs.writeFile("../Resources/Foodjson.json", data, err=>{
+            if(err){
+                console.log("Error writing file" ,err)
+            } else {
+                console.log('JSON data is written to the file successfully')
+            }
+        })
+}
