@@ -26,10 +26,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('Fidelity Zulu');
   });
 
-  xit('should render title', () => {
+  it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('header')?.textContent).toContain('Fid Zulu');
+    expect(compiled.querySelector('title')?.textContent).toContain('Fidelity Zulu');
   });
 });
