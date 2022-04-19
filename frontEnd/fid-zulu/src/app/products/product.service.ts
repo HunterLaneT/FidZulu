@@ -14,6 +14,11 @@ import { catchError, Observable, throwError } from 'rxjs';
 export class ProductService {
 
   getBikesEndPoint = 'http://localhost:3021/bikes/Durham';
+  getDvdsEndPoint = '';
+  getBooksEndPoint = '';
+  getFoodsEndPoint = '';
+  getLaptopsEndPoint = '';
+  getToysEndPoint = '';
 
 
   mockDvds: Dvd[] = [
