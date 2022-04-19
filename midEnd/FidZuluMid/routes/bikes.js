@@ -2,6 +2,13 @@ var express = require('express');
 const axios = require('axios');
 var router = express.Router();
 
+
+router.get('/teams', async function(req, res, next) {
+    getTeams().then(data => {
+        res.send(data);
+    }).catch(err => console.log(err));
+});
+
 /* Calculate Bike Prices */
 router.get('/:location', async function(req, res, next) {
 
@@ -22,12 +29,6 @@ router.post('/add', function(req, res, next) {
     }).catch(err => res.sendStatus(err.response.status));
 });
 
-router.get('/teams', async function(req, res, next) {
-    getTeams().then(data => {
-        res.send(data);
-    }).catch(err => console.log(err));
-});
-
 async function getBikes(location) {
     return axios.get('http://localhost:3031/bikes/' + location)
         .then(response => {
@@ -37,7 +38,7 @@ async function getBikes(location) {
 };
 
 async function getTeams() {
-    return axios.get('http://localhost:3031/bikes/teams')
+    return axios.get('http://localhost:3031/bikes/team')
         .then(response => {
             console.log(response.data);
             return response.data
