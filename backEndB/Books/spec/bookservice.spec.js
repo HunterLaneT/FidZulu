@@ -6,7 +6,7 @@ const base_url = "http://localhost:3034/books/";
 console.log("Starting test");
 
 describe("Books RESTful service", () => {
-    describe("GET all/nowhereland", () => {
+    describe("GET :location", () => {
         const url = base_url + "all/nowhereland";
         it("returns status code 200", done => {
             request.get(url, (err, res, body) => {

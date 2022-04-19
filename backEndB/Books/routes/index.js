@@ -13,13 +13,21 @@ const team = {
     "Ryland Dreibelbis",
     "Conner Bluck"
   ]
-}
+};
+const tax_rates = {
+  "raleigh": 0.075,
+  "durham": 0.08
+};
 
-router.get('/books/all/:location', (req, res, next) => {
-  const location = req.params.location;
-  let tax = 0;
-  if (location.toLowerCase() === "raleigh") tax = 0.075;
-  else if (location.toLowerCase() === "durham") tax = 0.08;
+router.get('/books/team', (req, res, next) => {
+  res.setHeader('content-type', 'application/json');
+  res.end(JSON.stringify(team));
+});
+
+router.get('/books/:location', (req, res, next) => {
+  const location = req.params.location.toLowerCase();
+  const tax = tax_rates[location];
+  if (tax === null) next(createError(404));
   const raw = books.list();
   const result = raw.map(book => {
     book.price += book.price * tax;
@@ -28,11 +36,6 @@ router.get('/books/all/:location', (req, res, next) => {
   });
   res.setHeader('content-type', 'application/json');
   res.end(JSON.stringify(result));
-});
-
-router.get('/books/team', (req, res, next) => {
-  res.setHeader('content-type', 'application/json');
-  res.end(JSON.stringify(team));
 });
 
 router.post('/books/add', (req, res, next) => {
