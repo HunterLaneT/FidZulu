@@ -42,7 +42,7 @@ async function getTeams() {
         });
     };
 async function addLaptops(laptop) {
-    return axios.post('http://localhost:3034/laptops/add', laptop)
+    return axios.post('http://localhost:3036/laptops/add', laptop)
     .then(response => {
         console.log(response.data);
         return response.data
