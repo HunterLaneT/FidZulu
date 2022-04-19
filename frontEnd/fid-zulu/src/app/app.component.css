@@ -1,0 +1,157 @@
+@import "~mdb-ui-kit/css/mdb.min.css";
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  text-rendering: optimizeLegibility;
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+  font-family: Ubuntu;
+  font-smooth: always;
+  font-smooth: 5em;
+}
+
+.btn-group {
+  margin: 0.25rem 0;
+  font-weight: 700;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.margin {
+  margin-left: 5rem;
+  margin-right: 5rem;
+  margin-top: 1rem;
+}
+
+header {
+  background: rgb(118, 169, 35);
+  background: linear-gradient(
+    90deg,
+    rgba(118, 169, 35, 1) 0%,
+    rgba(0, 96, 68, 1) 93%
+  );
+  padding: 40px;
+  text-align: center;
+  color: white;
+  font-size: 60px;
+  font-weight: 800;
+  border-radius: 5px;
+}
+
+footer {
+  bottom: 0;
+  left: 0;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  padding: 2rem;
+  margin: 2rem;
+}
+
+.card {
+  /* border: 1px solid #111; */
+  padding: 0.5rem;
+  box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+.bike-card {
+  /* border: 1px solid #1064f0; */
+  margin-bottom: 15px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.book-card {
+  /* border: 1px solid #f8a800; */
+  margin-bottom: 15px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.dvds-card {
+  /* border: 1px solid #F83050; */
+  margin-bottom: 15px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.food-card {
+  /* border: 1px solid #38c0e8; */
+  margin-bottom: 15px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.toys-card {
+  /* border: 1px solid #B03CF8; */
+  margin-bottom: 15px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.laptops-card {
+  /* border: 1px solid #00B448; */
+  margin-bottom: 15px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.title {
+  text-align: center;
+  color: white;
+  font-size: 35px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.bikes {
+  background-color: #1064f0;
+  height: 100%;
+}
+
+.toys {
+  background-color: #b03cf8;
+}
+
+.laptops {
+  background-color: #00b448;
+}
+
+.dvd {
+  background-color: #f83050;
+}
+
+.books {
+  background-color: #f8a800;
+}
+
+.food {
+  background-color: #38c0e8;
+}
+
+.title,
+.food,
+.books,
+.dvd,
+.laptops,
+.toys,
+.bikes {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.title-card,
+.food-card,
+.book-card,
+.dvd-card,
+.laptops-card,
+.toys-card,
+.bike-card {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}

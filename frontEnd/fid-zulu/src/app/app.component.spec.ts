@@ -23,13 +23,13 @@ describe('AppComponent', () => {
   it(`should have as title 'fid-zulu'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('fid-zulu');
+    expect(app.title).toEqual('Fidelity Zulu');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('fid-zulu app is running!');
+    expect(compiled.querySelector('title')?.textContent).toContain('Fidelity Zulu');
   });
 });

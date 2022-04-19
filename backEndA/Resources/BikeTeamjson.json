@@ -1,0 +1,18 @@
+[
+  {
+    "team": "BackEndA",
+    "membersNames": ["Emanuel Aguirre-Franco","Lorenzo Battigelli","Brian King","Jared Solomon","Miles Walker"]
+  },
+  {
+    "team": "MidTierA",
+    "membersNames": ["Allen Wong", "Brandon Daggerhart", "Joel Parham", "Simon Hayes", "Thomas Poole"]
+  },
+  {
+    "team": "MidTierB",
+    "membersNames": ["Brandon Derricho", "Makeda Phoenix", "Seth Schallau", "Waseem Hanna", "Zachary Boutchyard"]
+  },
+  {
+    "team": "FrontEnd",
+    "membersNames": ["Ky Hampton", "Bryce Rooney", "Micah Haycraft", "Hunter Turner", "Dhruvenkumar Chauhan"]
+  }
+]

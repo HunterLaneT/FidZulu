@@ -1,0 +1,24 @@
+{
+  "name": "fidzulumid",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "jasmine-node --captureExceptions spec"
+  },
+  "dependencies": {
+    "axios": "^0.26.1",
+    "cookie-parser": "~1.4.4",
+    "cypress": "^9.5.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {
+    "jasmine-node": "^3.0.0",
+    "nock": "^13.2.4"
+  }
+}

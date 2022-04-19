@@ -1,0 +1,25 @@
+<div class="toys-card card">
+  <h2 class="title toys">Toys</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Age-Group</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let toy of toysList">
+        <td>{{ toy.name }}</td>
+        <td>{{ toy.brand }}</td>
+        <td>{{ toy.age_group }}</td>
+        <td>{{ toy.price | currency }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="errorMessage" class="error">
+  {{ errorMessage }}
+</div>

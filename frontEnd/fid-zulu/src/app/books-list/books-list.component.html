@@ -1,0 +1,28 @@
+<div class="book-card card">
+  <h3 class="title books">Books</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Author</th>
+        <th scope="col">Price</th>
+        <th scope="col">ISBN</th>
+        <th scope="col">Publisher</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let book of books">
+        <td>{{ book.Title }}</td>
+        <td>{{ book.Author }}</td>
+        <td>{{ book.price | currency }}</td>
+        <td>{{ book.ISBN }}</td>
+        <td>{{ book.publisher }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="errorMessage" class="error">
+  {{ errorMessage }}
+</div>
+
