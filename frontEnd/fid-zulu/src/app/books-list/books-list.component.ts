@@ -8,6 +8,8 @@ import { Book } from '../models/book.model';
 })
 export class BooksListComponent implements OnInit {
 
+  errorMessage: string = "";
+
   mockBooks: Book[] = [
     {
       "title": "Lord of the Rings",
