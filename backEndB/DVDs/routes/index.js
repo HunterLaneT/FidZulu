@@ -15,8 +15,29 @@ const team = [{
   ]
 
 },
-
+{"team": "Back End A",
+"membersNames": [
+  "Miles Walker",
+  "Emanuel Aguirre-Franco",
+  "Jared Solomon",
+  "Lorenzo Battigelli",
+  "Brian King"
 ]
+},
+{
+  "team": "Mid-End",
+  "membersNames": [
+    ""
+  ]
+},
+{
+  "team": "Front-end",
+  "membersNames": [
+    ""
+  ]
+}
+];
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
