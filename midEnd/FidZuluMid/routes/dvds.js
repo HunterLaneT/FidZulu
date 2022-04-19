@@ -2,6 +2,14 @@ var express = require('express');
 const request = require('request');
 var router = express.Router();
 
+/* Get the teams*/
+router.get('/teams', async function(req, res, next) {
+
+    getTeams().then(data => {
+        res.send(data);
+    }).catch(err => console.log(err));
+});
+
 /* Calculate DVD Prices */
 router.get('/:location', function(req, res, next) {
 
@@ -38,15 +46,8 @@ async function addDVDs(DVD) {
     });
 };
 
-router.get('/teams', async function(req, res, next) {
-
-    getTeams().then(data => {
-        res.send(data);
-    }).catch(err => console.log(err));
-});
-
 async function getTeams() {
-    return axios.get('http://localhost:3035/dvds/teams')
+    return axios.get('http://localhost:3035/dvds/team')
         .then(response => {
             console.log(response.data);
             return response.data

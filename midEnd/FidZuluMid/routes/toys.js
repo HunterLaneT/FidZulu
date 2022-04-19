@@ -2,6 +2,13 @@ var express = require('express');
 const axios = require('axios');
 var router = express.Router();
 
+/* Get the teams */
+router.get('/teams', async function(req, res, next) {
+    getTeams().then(data => {
+        res.send(data);
+    }).catch(err => console.log(err))
+});
+
 /* Calculate Toys Prices */
 router.get('/:location', function(req, res, next) {
 
@@ -10,12 +17,6 @@ router.get('/:location', function(req, res, next) {
     getToys(location).then(data => {
         res.send(data);
     }).catch(err => console.log(err));
-});
-
-router.get('/teams', async function(req, res, next) {
-    getTeams().then(data => {
-        res.send(data);
-    }).catch(err => console.log(err))
 });
 
 router.post('/add', function(req, res, next) {
@@ -43,7 +44,7 @@ async function addToys(toy) {
 };
 
 async function getTeams() {
-    return axios.get('http://localhost:3033/toys/teams/')
+    return axios.get('http://localhost:3033/toys/team/')
         .then(response => {
             console.log(response.data);
             return response.data
