@@ -38,7 +38,7 @@ router.post('/add', function(req, res, next) {
   res.setHeader('content-type', 'application/json');
   res.end(JSON.stringify(result));
 } else {
-  next(createError(404));
+  next(createError(400));
 }
 });
 
