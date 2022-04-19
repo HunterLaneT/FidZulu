@@ -58,7 +58,7 @@ describe("Books RESTful service", () => {
         it("returns all team member names", done => {
             request.get(url, (err, res, body) => {
                 const team = JSON.parse(body);
-                expect(team.membersNames.length).toBe(5);
+                expect(team[0].membersNames.length).toBe(5);
                 done();
             });
         });

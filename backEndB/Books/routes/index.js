@@ -4,16 +4,26 @@ const router = express.Router();
 
 const books = require('../modules/books');
 const url = require('url');
-const team = {
-  "team": "Back-End B",
-  "membersNames": [
-    "Will Berner",
-    "Rahul Gawdi",
-    "Matthew Yeakel",
-    "Ryland Dreibelbis",
-    "Conner Bluck"
-  ]
-};
+const team = [
+  {
+    "team": "Back-End B",
+    "membersNames": [
+      "Will Berner",
+      "Rahul Gawdi",
+      "Matthew Yeakel",
+      "Ryland Dreibelbis",
+      "Conner Bluck"
+    ]
+  },
+  {
+    "team": "Mid-End",
+    "membersNames": []
+  },
+  {
+    "team": "Front-end",
+    "membersNames": []
+  }
+];
 const tax_rates = {
   "raleigh": 0.075,
   "durham": 0.08
