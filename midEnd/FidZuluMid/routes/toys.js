@@ -26,4 +26,12 @@ async function getToys(location) {
         });
 };
 
+async function getTeams() {
+    return axios.get('http://localhost:3033/toys/teams/')
+        .then(response => {
+            console.log(response.data);
+            return response.data
+        });
+}
+
 module.exports = router;
