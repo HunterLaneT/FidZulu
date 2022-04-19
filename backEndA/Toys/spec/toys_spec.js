@@ -1,19 +1,19 @@
 const request = require("request");
 
-const base_url = 'http://localhost:3032/';
-const food_url = base_url + 'food/Raleigh';
-const not_found_url = base_url + 'food/';
+const base_url = 'http://localhost:3033/';
+const toys_url = base_url + 'toys/Raleigh';
+const not_found_url = base_url + 'toys/';
 
-describe("Food server food endpoint tests", function () {
-    describe("GET /food/Raleigh", () => {
+describe("Toys server bikes endpoint tests", function () {
+    describe("GET /toys/Raleigh", () => {
         it("returns status code 200",  (done) => {
-            request.get(food_url, (error, response, body) => {
+            request.get(toys_url, (error, response, body) => {
                 expect(response.statusCode).toBe(200);
                 done();
             });
         });
         it("contains price", (done) => {
-            request.get(food_url, (error, response, body) => {
+            request.get(toys_url, (error, response, body) => {
                 expect(body).toBeTruthy();
                 expect(body).toContain("price");
                 done();
@@ -21,7 +21,7 @@ describe("Food server food endpoint tests", function () {
         });
     });
     // test for wrong path and expect 404
-    describe("GET /food/", () => {
+    describe("GET /toys/", () => {
         it("returns status code 404",  (done) => {
             request.get(not_found_url, (error, response, body) => {
                 expect(response.statusCode).toBe(404);
@@ -29,7 +29,7 @@ describe("Food server food endpoint tests", function () {
             });
         });
     });
-    describe("GET /food/China", () => {
+    describe("GET /toys/China", () => {
         it("returns status code 404",  (done) => {
             request.get(not_found_url + "China", (error, response, body) => {
                 expect(response.statusCode).toBe(404);

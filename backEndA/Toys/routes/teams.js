@@ -1,6 +1,6 @@
 // var express = require('express');
 // var router = express.Router();
-// const toysTeam = require("../modules/tm");
+// const toysTeam = require("../modules/team");
 
 // /* GET users listing. */
 // router.get('/', function(req, res, next) {
