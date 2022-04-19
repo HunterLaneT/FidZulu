@@ -2,6 +2,13 @@ var express = require('express');
 const axios = require('axios');
 var router = express.Router();
 
+/* Get the teams */
+router.get('/teams', async function(req, res, next) {
+    getTeams().then(data => {
+        res.send(data);
+    }).catch(err => console.log(err));
+});
+
 /* Calculate Food Prices */
 router.get('/:location', function(req, res, next) {
 
@@ -11,12 +18,6 @@ router.get('/:location', function(req, res, next) {
         res.send(data);
     }).catch(err => console.log(err));
 
-});
-
-router.get('/teams', async function(req, res, next) {
-    getTeams().then(data => {
-        res.send(data);
-    }).catch(err => console.log(err));
 });
 
 /* Add a Food */
@@ -38,7 +39,7 @@ async function getFoods(location) {
 };
 
 async function getTeams() {
-    return axios.get('http://localhost:3032/food/teams')
+    return axios.get('http://localhost:3032/food/team')
         .then(response => {
             console.log(response.data);
             return response.data

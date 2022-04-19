@@ -2,6 +2,13 @@ var express = require('express');
 const request = require('request');
 var router = express.Router();
 
+/* Get the teams*/
+router.get('/teams', async function(req, res, next) {
+    getTeams().then(data => {
+        res.send(data);
+    }).catch(err => console.log(err));
+});
+
 /* Calculate Book Prices */
 router.get('/:location', function(req, res, next) {
 
@@ -22,12 +29,6 @@ router.post('/add', function(req, res, next) {
     }).catch(err => res.sendStatus(err.response.status));
 });
 
-router.get('/teams', async function(req, res, next) {
-    getTeams().then(data => {
-        res.send(data);
-    }).catch(err => console.log(err));
-});
-
 async function getBooks(location) {
     return axios.get('http://localhost:3034/books/' + location)
         .then(response => {
@@ -37,7 +38,7 @@ async function getBooks(location) {
 }; 
 
 async function getTeams() {
-    return axios.get('http://localhost:3034/books/teams')
+    return axios.get('http://localhost:3034/books/team')
         .then(response => {
             console.log(response.data);
             return response.data
