@@ -1,7 +1,9 @@
 const request = require("request");
 const nock = require("nock");
 
+
 const base_url = 'http://localhost:3021';
+const post_url = "/toys/add";
 
 describe("Toys Mid End Tests", () => {
     describe("GET /toys/<location>", () => {
@@ -86,4 +88,67 @@ describe("Toys Mid End Tests", () => {
         });
 
     });
+
+    describe("POST /toys/add", () => {
+        it("returns a 404 status code", (done) => {
+            nock(base_url).post(post_url).reply(404);
+
+            request.post(base_url + post_url, (err, res, body) => {
+                expect(res.statusCode).toBe(404);
+                done();
+            });
+        });
+
+        it("returns a 200 status code", (done) => {
+            let toy = {
+                "name": "Kit Meds",
+                "brand": "Price-Fish",
+                "age-group": "5 to 6",
+                "prize": 19.41
+              };
+
+            let toyJSON = JSON.stringify(toy);
+
+            nock(base_url)
+                .post(post_url, toyJSON)
+                .reply(200, {
+                    id: 123456
+                });
+
+            request.post({
+                url: base_url + post_url,
+                body: toyJSON
+            }, (err, res, body) => {
+                expect(res.statusCode).toBe(200);
+                done();
+            });
+        });
+
+        it("returns id on successful add", (done) => {
+            let toy = {
+                "name": "Kit Meds",
+                "brand": "Price-Fish",
+                "age-group": "5 to 6",
+                "prize": 19.41
+              };
+
+            let toyJSON = JSON.stringify(toy);
+
+            nock(base_url)
+                .post(post_url, toyJSON)
+                .reply(200, {
+                    id: 123456
+                });
+            
+            request.post({
+                url: base_url + post_url,
+                body: toyJSON
+            }, (err, res, body) => {
+                expect(body).toBeTruthy();
+                expect(body).toContain(123456);
+                done();
+            });
+        });
+    });
+
 });
