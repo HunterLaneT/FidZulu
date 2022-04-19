@@ -98,6 +98,12 @@ describe("Laptop RESTful service", () => {
                 });
             });
         });
+        it("returns 400 on invalid laptop", done => {
+            request.post(url, {body: {Title: "asdfasdf"}, json: true}, (err,res,body) => {
+                expect(res.statusCode).toBe(400);
+                done();
+            });
+        });
 
        
     }); 
