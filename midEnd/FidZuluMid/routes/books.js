@@ -49,6 +49,8 @@ async function addBooks(book) {
     .then(response => {
         console.log(response.data);
         return response.data
+    }).catch(err => {
+        throw new Error(err);
     });
 };
 
