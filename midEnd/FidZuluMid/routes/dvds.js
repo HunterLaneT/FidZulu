@@ -31,7 +31,7 @@ async function getDVDs(location) {
 };
 
 async function addDVDs(DVD) {
-    return axios.post('http://localhost:3034/dvds/add', DVD)
+    return axios.post('http://localhost:3035/dvds/add', DVD)
     .then(response => {
         console.log(response.data);
         return response.data
@@ -46,11 +46,11 @@ router.get('/teams', async function(req, res, next) {
 });
 
 async function getTeams() {
-
-    return axios.get(response => {
-        console.log(response.data);
-        return response.data
-    });
-}
+    return axios.get('http://localhost:3035/dvds/teams')
+        .then(response => {
+            console.log(response.data);
+            return response.data
+        });
+};
 
 module.exports = router;
