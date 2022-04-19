@@ -14,6 +14,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ShowAllListsComponent } from './show-all-lists/show-all-lists.component';
 import { HeaderFooterComponent } from './header-footer/header-footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FooterRealComponent } from './footer-real/footer-real.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     NavBarComponent,
     ShowAllListsComponent,
     HeaderFooterComponent,
+    FooterRealComponent,
   ],
   imports: [
     BrowserModule,
