@@ -15,5 +15,8 @@
     "jasmine-node": "^3.0.0",
     "morgan": "~1.9.1",
     "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "jasmine-node": "^3.0.0"
   }
 }

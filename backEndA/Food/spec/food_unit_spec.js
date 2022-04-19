@@ -10,6 +10,29 @@ describe("Unit tests on food module", () => {
         });
         
     });
+    describe("load food object", () => {
+        //postive test to check matching properties
+        it("contains name property", () => {
+            let results = food.list();
+            expect(results[0].hasOwnProperty('name'));
+        });
+        it("contains brand property", () => {
+            let results = food.list();
+            expect(results[0].hasOwnProperty('brand'));
+        });
+        it("contains weight property", () => {
+            let results = food.list();
+            expect(results[0].hasOwnProperty('weight'));
+        });
+        it("contains calories property", () => {
+            let results = food.list();
+            expect(results[0].hasOwnProperty('calories'));
+        });
+        it("contains price property", () => {
+            let results = food.list();
+            expect(results[0].hasOwnProperty('price'));
+        });
+    });
     describe("load food with taxes", () => {
         //positive test to load food from Raleigh
         it("with location Raleigh", () => {
