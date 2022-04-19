@@ -15,7 +15,13 @@ export class BooksListComponent implements OnInit {
 
   getBooks(){
     this.productService.getBooks()
-            .subscribe(data => this.books = data);
+    .subscribe({
+      next : (data) => {
+        this.books = data;
+        this.errorMessage = '';
+      },
+        error: (e) => this.errorMessage = e
+      });
   }
 
   constructor(private productService: ProductService) { }

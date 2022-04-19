@@ -15,7 +15,13 @@ export class LaptopsListComponent implements OnInit {
 
   getLaptops(){
     this.productService.getLaptops()
-            .subscribe(data => this.laptops = data);
+    .subscribe({
+      next : (data) => {
+        this.laptops = data;
+        this.errorMessage = '';
+      },
+        error: (e) => this.errorMessage = e
+      });
   }
 
   constructor(private productService: ProductService) { }

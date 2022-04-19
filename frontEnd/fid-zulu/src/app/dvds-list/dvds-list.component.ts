@@ -15,7 +15,13 @@ export class DVDsListComponent implements OnInit {
 
   getDvds() {
     this.productService.getDvds()
-            .subscribe(data => this.dvds = data);
+    .subscribe({
+      next : (data) => {
+        this.dvds = data;
+        this.errorMessage = '';
+      },
+        error: (e) => this.errorMessage = e
+      });
   }
 
   constructor(private productService: ProductService) {}
