@@ -56,4 +56,37 @@ describe("DVDs Mid End Tests", () => {
             });
         });
     });
+
+    describe("GET /dvds/teams", () => {
+        it("returns a 200 status code", (done) => {
+            let path = "/dvds/teams";
+
+            nock(base_url).get(path).reply(200, {
+                data: {
+                    "name" : "Thomas Poole"
+                }
+            });
+
+            request.get(base_url + path, (err, res, body) => {
+                expect(res.statusCode).toBe(200);
+                done();
+            });
+        });
+        it("returns Thomas Poole", (done) => {
+            let path = "/dvds/teams";
+            
+            nock(base_url).get(path).reply(200, {
+                data: {
+                    "name" : "Thomas Poole"
+                }
+            });
+
+            request.get(base_url + path, (err, res, body) => {
+                expect(body).toBeTruthy();
+                expect(body).toContain("Thomas Poole");
+                done();
+            });
+        });
+
+    });
 });
