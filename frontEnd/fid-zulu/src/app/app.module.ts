@@ -13,6 +13,7 @@ import { ToysListComponent } from './toys-list/toys-list.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ShowAllListsComponent } from './show-all-lists/show-all-lists.component';
 import { HeaderFooterComponent } from './header-footer/header-footer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { HeaderFooterComponent } from './header-footer/header-footer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   providers: [  ],
   bootstrap: [AppComponent]
