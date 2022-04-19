@@ -35,7 +35,7 @@ async function getToys(location) {
         });
 };
 async function addToys(toy) {
-    return axios.post('http://localhost:3034/toys/add', toy)
+    return axios.post('http://localhost:3033/toys/add', toy)
     .then(response => {
         console.log(response.data);
         return response.data
