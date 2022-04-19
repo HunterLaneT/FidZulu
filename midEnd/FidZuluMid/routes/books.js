@@ -28,7 +28,7 @@ async function getBooks(location) {
             console.log(response.data);
             return response.data
         });
-};
+}; 
 
 async function addBooks(book) {
     return axios.post('http://localhost:3034/books/add', book)
