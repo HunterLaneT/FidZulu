@@ -12,35 +12,30 @@
 
 .book-card {
     border: 1px solid #f8a800;
-    padding: 1rem;
     margin-bottom: 15px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .dvds-card {
     border: 1px solid #F83050;
-    padding: 1rem;
     margin-bottom: 15px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .food-card {
     border: 1px solid #38c0e8;
-    padding: 1rem;
     margin-bottom: 15px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .toys-card {
     border: 1px solid #B03CF8;
-    padding: 1rem;
     margin-bottom: 15px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .laptops-card {
     border: 1px solid #00B448;
-    padding: 1rem;
     margin-bottom: 15px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
@@ -76,4 +71,8 @@
 
 .food {
     background-color: #38c0e8;
+}
+
+h1, h2, h3{
+    margin: 0;
 }
