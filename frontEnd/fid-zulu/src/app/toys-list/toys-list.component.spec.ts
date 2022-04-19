@@ -16,26 +16,26 @@ describe('ToysListComponent', () => {
       {
         name: 'Medical Kit',
         brand: 'Fisher-Price',
-        ageGroup: '3 to 9',
-        prize: 20.41,
+        age_group: '3 to 9',
+        price: 20.41,
       },
       {
         name: 'Ferry Boat',
         brand: 'Green Toys',
-        ageGroup: '3 to 6',
-        prize: 13.26,
+        age_group: '3 to 6',
+        price: 13.26,
       },
       {
         name: 'Rock-a-Stack',
         brand: 'Fisher-Price',
-        ageGroup: '1 to 5',
-        prize: 5.99,
+        age_group: '1 to 5',
+        price: 5.99,
       },
       {
         name: 'Stack Up Cups',
         brand: 'The First Years',
-        ageGroup: '0 to 3',
-        prize: 3.99,
+        age_group: '0 to 3',
+        price: 3.99,
       },
     ];
 

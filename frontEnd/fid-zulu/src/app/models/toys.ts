@@ -2,8 +2,8 @@ export class Toys {
     constructor(
         public name: string,
         public brand: string,
-        public ageGroup: string,
-        public prize: number
+        public age_group: string,
+        public price: number
     ){
        
     }
