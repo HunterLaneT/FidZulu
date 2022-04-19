@@ -25,7 +25,8 @@ describe("Unit tests on toys module", () => {
         it("with invalid location China", () => {
             expect( () => {
                 toys.query_by_arg("China");
-            }).toThrow("arg is not defined");
+                expect(results).toBeNull();
+            })
         });
        
     });

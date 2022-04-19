@@ -21,9 +21,17 @@ describe("Toys server bikes endpoint tests", function () {
         });
     });
     // test for wrong path and expect 404
-    describe("GET /bikes/", () => {
+    describe("GET /toys/", () => {
         it("returns status code 404",  (done) => {
             request.get(not_found_url, (error, response, body) => {
+                expect(response.statusCode).toBe(404);
+                done();
+            });
+        });
+    });
+    describe("GET /toys/China", () => {
+        it("returns status code 404",  (done) => {
+            request.get(not_found_url + "China", (error, response, body) => {
                 expect(response.statusCode).toBe(404);
                 done();
             });
