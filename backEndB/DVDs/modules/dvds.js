@@ -1,4 +1,4 @@
-constfs= require('fs');
+const fs= require('fs');
 let read_json_file= () =>
 {let file= './data/data.json';
 return fs.readFileSync(file);}
@@ -14,4 +14,7 @@ fs.writeFile('./data/data.json',JSON.stringify(dvds), err =>{
     if(err) console.log(err.message);
     else console.log("wrote to file successfully")
 });
+
+
 };
+
