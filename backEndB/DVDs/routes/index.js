@@ -52,14 +52,14 @@ router.post('/dvds/add', (req,res,next) => {
 const newDVD = req.body;
 if (
   Object.keys(newDVD).length === 5 && typeof (newDVD.title) === 'string'
-  && typeof (newDVD.mpaa_rating) === 'string' && typeof (newBook.studio) === 'string'
-  && typeof (newDVD.time) === 'number' && typeof (newBook.price) === 'number'
+  && typeof (newDVD.mpaa_rating) === 'string' && typeof (newDVD.studio) === 'string'
+  && typeof (newDVD.time) === 'number' && typeof (newDVD.price) === 'number'
 ) {
-  books.add_dvd(newDVD);
+  dvds.add_dvd(newDVD);
   res.end();
 }
 else {
-  res.sendStatus(400);
+  next(createError(400));
 }
 });
 

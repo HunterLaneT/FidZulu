@@ -8,13 +8,16 @@ exports.list=function(){
 };
 
 exports.add_dvd = (dvd) => {
-let books = JSON.parse(read_json_file());
+let dvds = JSON.parse(read_json_file());
 dvds[dvds.time]==dvd;
 fs.writeFile('./data/data.json',JSON.stringify(dvds), err =>{
     if(err) console.log(err.message);
     else console.log("wrote to file successfully")
 });
-
-
 };
-
+exports.reset_json = (json) => {
+    fs.writeFile(file, JSON.stringify(json), err => {
+        if (err) console.log(err.message);
+        else console.log("Wrote to file successfully");
+    });
+};
