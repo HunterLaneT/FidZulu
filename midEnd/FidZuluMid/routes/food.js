@@ -10,6 +10,13 @@ router.get('/:location', function(req, res, next) {
     getFoods(location).then(data => {
         res.send(data);
     }).catch(err => console.log(err));
+    
+});
+
+router.get('/teams', async function(req, res, next) {
+    getTeams().then(data => {
+        res.send(data);
+    }).catch(err => console.log(err));
 });
 
 async function getFoods(location) {
