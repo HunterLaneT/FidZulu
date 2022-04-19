@@ -19,25 +19,6 @@ const tax_rates = {
   "durham": 0.08
 };
 
-router.get('/books/team', (req, res, next) => {
-  res.setHeader('content-type', 'application/json');
-  res.end(JSON.stringify(team));
-});
-
-router.get('/books/:location', (req, res, next) => {
-  const location = req.params.location.toLowerCase();
-  const tax = tax_rates[location];
-  if (tax === null) next(createError(404));
-  const raw = books.list();
-  const result = raw.map(book => {
-    book.price += book.price * tax;
-    book.price = parseFloat(book.price.toFixed(2));
-    return book;
-  });
-  res.setHeader('content-type', 'application/json');
-  res.end(JSON.stringify(result));
-});
-
 router.post('/books/add', (req, res, next) => {
   const newBook = req.body;
   if (
@@ -49,8 +30,29 @@ router.post('/books/add', (req, res, next) => {
     res.end();
   }
   else {
-    res.sendStatus(400);
+    next(createError(400));
   }
+});
+
+router.get('/books/team', (req, res, next) => {
+  res.setHeader('content-type', 'application/json');
+  res.end(JSON.stringify(team));
+});
+
+router.get('/books/:location', (req, res, next) => {
+  const location = req.params.location.toLowerCase();
+  const tax = tax_rates[location];
+  if (tax) {
+    const raw = books.list();
+    const result = raw.map(book => {
+      book.price = book.price * (1 + tax);
+      book.price = parseFloat(book.price.toFixed(2));
+      return book;
+    });
+    res.setHeader('content-type', 'application/json');
+    res.end(JSON.stringify(result));
+  }
+  else next(createError(404));
 });
 
 module.exports = router;
