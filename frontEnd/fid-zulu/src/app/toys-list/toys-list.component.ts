@@ -11,13 +11,14 @@ export class ToysListComponent implements OnInit {
 
   errorMessage: string = "";
 
-  toysList : Toys[] = [];
+  toysList : Toys[] = []
 
   getToys()  {
-    this.toysList = this.service.getToys();
+    this.productService.getToys()
+            .subscribe(data => this.toysList = data);
   }
 
-  constructor(private service: ProductService) { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
     this.getToys();

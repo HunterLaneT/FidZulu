@@ -68,7 +68,7 @@ describe('BikesListComponent', () => {
     expect(component.bikes[1].name).toBe('Test DJ Fat Bike 500W');
     });
 
-  xit('should display an error message', () => {
+  it('should display an error message', () => {
       let errorDiv = fixture.debugElement.nativeElement
       .querySelector('.error');
       expect(errorDiv).toBeFalsy();

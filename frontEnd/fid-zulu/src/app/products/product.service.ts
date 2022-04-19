@@ -171,8 +171,9 @@ export class ProductService {
     return this.mockFood;
   }
 
-  getToys(): Toys[] {
-    return this.mockToys;
+  getToys(): Observable<Toys[]> {
+    return this.http.get<Toys[]>(this.getToysEndPoint)
+    .pipe(catchError(this.handleError));
   }
 
   getLaptops(): Laptop[] {
