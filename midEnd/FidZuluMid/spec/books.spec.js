@@ -57,6 +57,39 @@ describe("Books Mid End Tests", () => {
         });
     });
 
+    describe("GET /books/teams", () => {
+        it("returns a 200 status code", (done) => {
+            let path = "/books/teams";
+
+            nock(base_url).get(path).reply(200, {
+                data: {
+                    "name" : "Simon Hayes"
+                }
+            });
+
+            request.get(base_url + path, (err, res, body) => {
+                expect(res.statusCode).toBe(200);
+                done();
+            });
+        });
+        it("returns Simon Hayes", (done) => {
+            let path = "/books/teams";
+            
+            nock(base_url).get(path).reply(200, {
+                data: {
+                    "name" : "Simon Hayes"
+                }
+            });
+
+            request.get(base_url + path, (err, res, body) => {
+                expect(body).toBeTruthy();
+                expect(body).toContain("Simon Hayes");
+                done();
+            });
+        });
+
+    });
+
     describe("POST /books/add", () => {
         it("returns a 404 status code", (done) => {
             nock(base_url).post(post_url).reply(404);

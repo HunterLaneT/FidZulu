@@ -2,7 +2,7 @@ const request = require("request");
 const nock = require("nock");
 
 const base_url = 'http://localhost:3021';
-
+const post_url = "/dvds/add";
 
 describe("DVDs Mid End Tests", () => {
     describe("GET /dvds/<location>", () => {
