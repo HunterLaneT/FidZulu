@@ -37,8 +37,16 @@ async function getFoods(location) {
         });
 };
 
+async function getTeams() {
+    return axios.get('http://localhost:3032/food/teams')
+        .then(response => {
+            console.log(response.data);
+            return response.data
+        });
+};
+
 async function addFood(food) {
-    return axios.post('http://localhost:3034/books/add', food)
+    return axios.post('http://localhost:3032/food/add', food)
     .then(response => {
         console.log(response.data);
         return response.data
